@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sl.shoppingmart.dao.ShoppingCartDao">
+  <resultMap id="BaseResultMap" type="com.sl.shoppingmart.pojo.ShoppingCart">
+    <id column="sc_id" jdbcType="INTEGER" property="scId" />
+    <result column="g_id" jdbcType="INTEGER" property="gId" />
+    <result column="sc_isdel" jdbcType="BOOLEAN" property="scIsdel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    sc_id, g_id, sc_isdel
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shopping_cart
+    where sc_id = #{scId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shopping_cart
+    where sc_id = #{scId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="sc_id" keyProperty="scId" parameterType="com.sl.shoppingmart.pojo.ShoppingCart" useGeneratedKeys="true">
+    insert into shopping_cart (g_id, sc_isdel)
+    values (#{gId,jdbcType=INTEGER}, #{scIsdel,jdbcType=BOOLEAN})
+  </insert>
+  <insert id="insertSelective" keyColumn="sc_id" keyProperty="scId" parameterType="com.sl.shoppingmart.pojo.ShoppingCart" useGeneratedKeys="true">
+    insert into shopping_cart
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="gId != null">
+        g_id,
+      </if>
+      <if test="scIsdel != null">
+        sc_isdel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="gId != null">
+        #{gId,jdbcType=INTEGER},
+      </if>
+      <if test="scIsdel != null">
+        #{scIsdel,jdbcType=BOOLEAN},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sl.shoppingmart.pojo.ShoppingCart">
+    update shopping_cart
+    <set>
+      <if test="gId != null">
+        g_id = #{gId,jdbcType=INTEGER},
+      </if>
+      <if test="scIsdel != null">
+        sc_isdel = #{scIsdel,jdbcType=BOOLEAN},
+      </if>
+    </set>
+    where sc_id = #{scId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sl.shoppingmart.pojo.ShoppingCart">
+    update shopping_cart
+    set g_id = #{gId,jdbcType=INTEGER},
+      sc_isdel = #{scIsdel,jdbcType=BOOLEAN}
+    where sc_id = #{scId,jdbcType=INTEGER}
+  </update>
+</mapper>
