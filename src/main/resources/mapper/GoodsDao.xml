@@ -14,7 +14,7 @@
     g_id, g_desc, g_img, g_price, g_name, g_is_over_due, g_isdel
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from goods
     where g_id = #{gId,jdbcType=INTEGER}
@@ -24,10 +24,10 @@
     where g_id = #{gId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" keyColumn="g_id" keyProperty="gId" parameterType="com.sl.shoppingmart.pojo.Goods" useGeneratedKeys="true">
-    insert into goods (g_desc, g_img, g_price, 
+    insert into goods (g_desc, g_img, g_price,
       g_name, g_is_over_due, g_isdel
       )
-    values (#{gDesc,jdbcType=VARCHAR}, #{gImg,jdbcType=VARCHAR}, #{gPrice,jdbcType=DECIMAL}, 
+    values (#{gDesc,jdbcType=VARCHAR}, #{gImg,jdbcType=VARCHAR}, #{gPrice,jdbcType=DECIMAL},
       #{gName,jdbcType=VARCHAR}, #{gIsOverDue,jdbcType=BOOLEAN}, #{gIsdel,jdbcType=BOOLEAN}
       )
   </insert>
@@ -108,4 +108,17 @@
       g_isdel = #{gIsdel,jdbcType=BOOLEAN}
     where g_id = #{gId,jdbcType=INTEGER}
   </update>
+
+  <!--获取商品列表信息-->
+  <select id="listGoods" resultType="com.sl.shoppingmart.model.vo.GoodsListVo">
+    SELECT
+      g_id AS gId,
+      g_img AS gImg,
+      g_price AS gPrice,
+      g_name AS gName
+    FROM
+      goods g
+    WHERE
+      g.g_isdel = 0
+  </select>
 </mapper>
