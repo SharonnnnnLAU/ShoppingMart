@@ -2,7 +2,6 @@ package com.sl.shoppingmart.model.vo;
 
 import lombok.Data;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -32,14 +31,15 @@ public class GoodsListVo {
   private String gName;
 
   /**
+   * 商品类型 0:coat 1:plants 2:shirt 3:shoes 4:skirt
+   */
+  private Integer gType;
+
+  /**
    * 0：没有过期  1：过期
    */
   private Boolean gIsOverDue;
 
-  /**
-   * 0：没有删除  1：已删除
-   */
-  private Boolean gIsdel;
 
   private static final long serialVersionUID = 1L;
 }
