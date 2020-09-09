@@ -7,11 +7,14 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+
 <head>
   <title>Title</title>
 </head>
+
 <body>
-<jsp:forward page="/home/index.html"/>
-<%--<jsp:forward page="/home/test.html" />--%>
+  <jsp:forward page="/home/index.html" />
+  <%--<jsp:forward page="/home/test.html" />--%>
 </body>
+
 </html>

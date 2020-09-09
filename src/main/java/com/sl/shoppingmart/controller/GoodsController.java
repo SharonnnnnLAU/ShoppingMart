@@ -15,11 +15,11 @@ public class GoodsController {
   @Autowired
   private GoodsService goodsService;
 
-//  @RequestMapping("/test")
-//  public String test() {
-//    System.out.println("test");
-//    return "index";
-//  }
+  @RequestMapping("/test")
+  public String test() {
+    System.out.println("test");
+    return "index";
+  }
   @RequestMapping("/listGood")
   public R listGood(Integer page, Integer limit) {
     return goodsService.listGood(page,limit);

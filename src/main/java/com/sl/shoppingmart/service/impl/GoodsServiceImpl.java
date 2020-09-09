@@ -9,7 +9,6 @@ import com.sl.shoppingmart.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @Service
@@ -21,7 +20,7 @@ public class GoodsServiceImpl implements GoodsService {
   @Override
   public R listGood(Integer page, Integer limit) {
     Page<GoodsListVo> pg = PageHelper.startPage(page,limit);
-    List<GoodsListVo> goods = goodsDao.listGoods();
+    List<GoodsListVo> goods = goodsDao.listGood();
     return R.Success((int)pg.getTotal(), goods);
   }
 }
