@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.sl.shoppingmart.dao.GoodsDao;
 import com.sl.shoppingmart.manager.result.R;
+import com.sl.shoppingmart.model.vo.GoodsDetailVo;
 import com.sl.shoppingmart.model.vo.GoodsListVo;
 import com.sl.shoppingmart.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,17 @@ public class GoodsServiceImpl implements GoodsService {
   public R listGood() {
     List<GoodsListVo> goods = goodsDao.listGood();
     return R.Success(goods);
+  }
+
+  @Override
+  public R typeGood(Integer type) {
+    List<GoodsListVo> typeGoods = goodsDao.typeGood(type);
+    return R.Success(typeGoods);
+  }
+
+  @Override
+  public R goodsDetail(Integer gId) {
+    GoodsDetailVo good = goodsDao.goodsDetail(gId);
+    return R.Success(good);
   }
 }

@@ -13,7 +13,7 @@ layui.use(["table", "util", "form", "layedit", "laytpl"], function () {
     url: 'http://localhost:8080/Good/listGood',
     totalRow: false,
     skin: "line",
-    limits: [15, 20, 25, 30],
+    limits: [15, 20, 25, 30, 10],
     cols: [
       [
         {
@@ -22,7 +22,7 @@ layui.use(["table", "util", "form", "layedit", "laytpl"], function () {
           align: 'center',
           templet: function (d) {
             var path = d.gimg;
-            console.log(path);
+            // console.log(path);
             return "<img src=../" + path + " style='height: auto; width: 100% ' />"
           }
         },
@@ -54,6 +54,12 @@ layui.use(["table", "util", "form", "layedit", "laytpl"], function () {
               return 'SKIRT';
           }
         },
+        {
+          fixed: 'right',
+          align: 'center',
+          toolbar: '#good_list_option',
+          width: 55
+        }
       ]
     ]
   });
@@ -62,21 +68,32 @@ layui.use(["table", "util", "form", "layedit", "laytpl"], function () {
    * 商品类型 0:coat 1:plants 2:shirt 3:shoes 4:skirt
    */
 
+  // 监听行工具事件
+  table.on('good(good_list_event)', function (obj) {
+    var data = obj.data,
+        layEvent = obj.event;
+    switch (layEvent) {
+      case 'detail':
+        console.log("detail")
+        showgoodsDetail($, laytpl, data)
+        break;
+    }
+  });
 
   // 弹出并渲染课程详情页
   function showgoodsDetail($, laytpl, data) {
     var id = data.gId;
-    // console.log(data)
-    // console.log(id)
+    console.log(data)
+    console.log(id)
     $.ajax({
       type: "get",
-      url: "http://localhost:8080/goods/goodsDetail?csId=" + id,
+      url: "http://localhost:8080/goods/goodsDetail?gId=" + id,
       dataType: "json",
       xhrFields: {
         withCredentials: true
       },
       success: function (res) {
-        // console.log(res.data)
+        console.log(res.data)
         var cnt, d = res.data,
             goodsDetail = goods_detail.innerHTML;
         laytpl(goodsDetail).render(d, function (html) {

@@ -1,5 +1,6 @@
 package com.sl.shoppingmart.dao;
 
+import com.sl.shoppingmart.model.vo.GoodsDetailVo;
 import com.sl.shoppingmart.model.vo.GoodsListVo;
 import com.sl.shoppingmart.pojo.Goods;
 
@@ -19,4 +20,8 @@ public interface GoodsDao {
   int updateByPrimaryKey(Goods record);
 
   List<GoodsListVo> listGood();
+
+  List<GoodsListVo> typeGood(Integer type);
+
+  GoodsDetailVo goodsDetail(Integer gId);
 }

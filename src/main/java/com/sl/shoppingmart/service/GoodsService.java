@@ -8,4 +8,8 @@ public interface GoodsService {
    * @return 商品信息列表
    */
   R listGood();
+
+  R typeGood(Integer type);
+
+  R goodsDetail(Integer gId);
 }

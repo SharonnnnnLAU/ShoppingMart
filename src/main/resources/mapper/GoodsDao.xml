@@ -120,7 +120,7 @@
     where g_id = #{gId,jdbcType=INTEGER}
   </update>
 
-
+<!--获取商品列表-->
   <select id="listGood" resultType="com.sl.shoppingmart.model.vo.GoodsListVo">
     SELECT
       g_name AS gName,
@@ -132,5 +132,28 @@
       goods
     WHERE
       g_isdel = 0
+  </select>
+
+<!--实现商品分类筛选-->
+  <select id="typeGood" resultType="com.sl.shoppingmart.model.vo.GoodsListVo" resultMap="BaseResultMap">
+    SELECT
+      g_name,
+      g_id,
+      g_price,
+      g_img,
+      g_type
+    FROM
+      goods
+    WHERE
+      g_isdel = 0 AND g_type = #{type}
+  </select>
+
+
+  <!--商品id查询-->
+  <select id="goodsDetail" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    g_id, g_desc, g_price, g_name, g_type, g_img
+    from goods
+    where g_id = #{gId,jdbcType=INTEGER}
   </select>
 </mapper>

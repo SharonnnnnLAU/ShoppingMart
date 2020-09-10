@@ -1221,14 +1221,7 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
     transition: all 0.3s ease-in-out;
 }
 
-.header-action-layout1 ul .header-login-icon a:hover {
-    color: #226679;
-}
-
 .header-action-layout1 ul .header-btn .item-btn {
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
     display: inline-flex;
     -webkit-box-align: center;
     -webkit-align-items: center;

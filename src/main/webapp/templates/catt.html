@@ -64,8 +64,8 @@
         <div class="row d-flex align-items-center">
           <div class="col-lg-2">
             <div class="logo-area">
-              <a href="index.html" th:href="@{index.html}" class="temp-logo">
-                <img src="../img/sharon.png" th:src="@{../img/sharon.png}" alt="logo" class="img-fluid"
+              <a href="catt.html" class="temp-logo">
+                <img src="../img/sharon.png" alt="logo" class="img-fluid"
                      style="max-width: 89%">
               </a>
             </div>
@@ -74,19 +74,19 @@
             <nav id="dropdown" class="template-main-menu">
               <ul>
                 <li>
-                  <a href="type.html">COAT</a>
+                  <a href="coat_type.html">COAT</a>
                 </li>
                 <li>
-                  <a href="type.html">SHIRT</a>
+                  <a href="coat_type.html">SHIRT</a>
                 </li>
                 <li>
-                  <a href="type.html">SKIRT</a>
+                  <a href="coat_type.html">SKIRT</a>
                 </li>
                 <li>
-                  <a href="type.html">PLANTS</a>
+                  <a href="coat_type.html">PLANTS</a>
                 </li>
                 <li>
-                  <a href="type.html">SHOES</a>
+                  <a href="coat_type.html">SHOES</a>
                 </li>
                 <li>
                   <a href="">CONTACT</a>
@@ -101,6 +101,10 @@
                   <a href="index.html" class="color-light" data-toggle="tooltip" data-placement="top"
                      title="Login/Register">
                     <i class="far fa-user"></i>
+                  </a>
+                  <a href="index.html" class="color-light" data-toggle="tooltip" data-placement="top"
+                     title="Staff Login">
+                    <i><img src="../img/icon/staff.png" class="icon-staff"></i>
                   </a>
                 </li>
                 <li class="header-btn">
@@ -132,27 +136,27 @@
       <div class="search-box-layout1">
         <form action="#">
           <div class="row no-gutters">
-            <div class="col-lg-3 form-group">
+            <div class="col-lg-12 form-group">
               <div class="input-search-btn search-type" data-toggle="modal" data-target="#modal-type">
                 <img class="icon" src="../img/icon/typelis.png">
                 <label>Select Type</label>
               </div>
             </div>
-            <div class="col-lg-3 form-group">
-              <div class="input-search-btn search-range" data-toggle="modal" data-target="#modal-range">
-                <img class="icon" src="../img/icon/money.png">
-                <label>Select Range</label>
-              </div>
-            </div>
-            <div class="col-lg-4 form-group">
-              <div class="input-search-btn search-keyword">
-                <i class="fas fa-text-width"></i>
-                <input type="text" class="form-control" placeholder="Enter Keyword here ..." name="keyword">
-              </div>
-            </div>
-            <div class="col-lg-2 form-group">
-              <button type="submit" class="submit-btn"><i class="fas fa-search"></i>Search</button>
-            </div>
+            <!--<div class="col-lg-6 form-group">-->
+              <!--<div class="input-search-btn search-range" data-toggle="modal" data-target="#modal-range">-->
+                <!--<img class="icon" src="../img/icon/money.png">-->
+                <!--<label>Select Range</label>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-lg-4 form-group">-->
+              <!--<div class="input-search-btn search-keyword">-->
+                <!--<i class="fas fa-text-width"></i>-->
+                <!--<input type="text" class="form-control" placeholder="Enter Keyword here ..." name="keyword" id="keyword">-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-lg-2 form-group">-->
+              <!--<button class="submit-btn" id="search"><i class="fas fa-search"></i>Search</button>-->
+            <!--</div>-->
           </div>
         </form>
       </div>
@@ -172,7 +176,7 @@
     <div class="row">
       <div class="col-lg-6 col-md-4 col-sm-6">
         <div class="category-box-layout1">
-          <a href="#">
+          <a href="coat_type.html">
             <div class="item-icon">
               <img src="../img/icon/coat.png" class="icon-row">
             </div>
@@ -185,7 +189,7 @@
       </div>
       <div class="col-lg-6 col-md-4 col-sm-6">
         <div class="category-box-layout1">
-          <a href="#">
+          <a href="shirt_type.html">
             <div class="item-icon">
               <img src="../img/icon/shirt.png" class="icon-row">
             </div>
@@ -198,7 +202,7 @@
       </div>
       <div class="col-lg-6 col-md-4 col-sm-6">
         <div class="category-box-layout1">
-          <a href="#">
+          <a href="skirt_type.html">
             <div class="item-icon">
               <img src="../img/icon/skirt.png" class="icon-row">
             </div>
@@ -211,7 +215,7 @@
       </div>
       <div class="col-lg-6 col-md-4 col-sm-6">
         <div class="category-box-layout1">
-          <a href="#">
+          <a href="plants_type.html">
             <div class="item-icon">
               <img src="../img/icon/plants.png" class="icon-row">
             </div>
@@ -224,7 +228,7 @@
       </div>
       <div class="col-lg-6 col-md-4 col-sm-6">
         <div class="category-box-layout1">
-          <a href="#">
+          <a href="shoes_type.html">
             <div class="item-icon">
               <img src="../img/icon/shoes.png" class="icon-row">
             </div>
@@ -269,7 +273,8 @@
       <!--</div>-->
     </div>
     <div class="ly-margin-lr-min">
-      <table class="layui-hide" id="goods_list" lay-filter="goods_list_event"></table>
+      <!--table 本人-->
+      <table class="layui-hide" id="goods_list" lay-filter="good_list_event"></table>
     </div>
   </div>
 </section>
@@ -373,7 +378,7 @@
       <div class="type-list">
         <h4 class="item-title">Type</h4>
         <ul>
-          <li><a href="#">COAT</a></li>
+          <li><a href="http://locaohost">COAT</a></li>
           <li><a href="#">SHIRT</a></li>
           <li><a href="#">SKIRT</a></li>
           <li><a href="#">PLANTS</a></li>
@@ -417,38 +422,43 @@
 <!--=====================================-->
 <!--=       Product Box SET         	 	=-->
 <!--=====================================-->
-<!-- 课程详情 -->
-<script type="text/html" id="goods_detail">
-  <div class="layui-layout-body">
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-      <legend>课程信息</legend>
-    </fieldset>
-    <div class="layui-row layui-col-space10">
-      <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
-        课程ID： {{d.csId}}
-      </div>
-      <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
-        课程名称： {{d.csName}}
-      </div>
-    </div>
-    <div class="layui-row layui-col-space10">
-      <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
-        总课时： {{d.csHour}}
-      </div>
-      <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
-        课程开始时间： {{d.csStartTime}}
-      </div>
-    </div>
-    <div class="layui-row layui-col-space10">
-      <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
-        授课教练ID： {{d.chId}}
-      </div>
-      <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
-        授课教练： {{d.chName}}
-      </div>
-    </div>
-  </div>
+<!-- 行工具栏 -->
+<script type="text/html" id="good_list_option">
+  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">详情</a>
 </script>
+
+<!-- 商品详情 -->
+<!--<script type="text/html" id="goods_detail">-->
+  <!--<div class="layui-layout-body">-->
+    <!--<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">-->
+      <!--<legend>课程信息</legend>-->
+    <!--</fieldset>-->
+    <!--<div class="layui-row layui-col-space10">-->
+      <!--<div class="layui-col-xs12 layui-col-sm12 layui-col-md6">-->
+        <!--课程ID： {{d.csId}}-->
+      <!--</div>-->
+      <!--<div class="layui-col-xs12 layui-col-sm12 layui-col-md6">-->
+        <!--课程名称： {{d.csName}}-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="layui-row layui-col-space10">-->
+      <!--<div class="layui-col-xs12 layui-col-sm12 layui-col-md6">-->
+        <!--总课时： {{d.csHour}}-->
+      <!--</div>-->
+      <!--<div class="layui-col-xs12 layui-col-sm12 layui-col-md6">-->
+        <!--课程开始时间： {{d.csStartTime}}-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="layui-row layui-col-space10">-->
+      <!--<div class="layui-col-xs12 layui-col-sm12 layui-col-md6">-->
+        <!--授课教练ID： {{d.chId}}-->
+      <!--</div>-->
+      <!--<div class="layui-col-xs12 layui-col-sm12 layui-col-md6">-->
+        <!--授课教练： {{d.chName}}-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!-- </script>-->
 
 
 </body>
@@ -486,8 +496,8 @@
 <script src="../libs/layui/layui.js"></script>
 <!-- Site Scripts -->
 <script src="../js/app.js"></script>
-<script src="../js/catt.js"></script>
-<script src="../js/main.js"></script>
 
+<script src="../js/main.js"></script>
+<script src="../js/catt.js"></script>
 
 </html>

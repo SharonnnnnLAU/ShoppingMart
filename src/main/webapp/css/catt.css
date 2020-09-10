@@ -1,3 +1,8 @@
 #goods_list table thead {
     display: none; !important;
 }
+.icon-staff {
+    height: 25px;
+    margin-top: -3px;
+    margin-left: 13px;
+}
