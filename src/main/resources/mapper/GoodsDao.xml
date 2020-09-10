@@ -127,8 +127,7 @@
       g_id AS gId,
       g_price AS gPrice,
       g_img AS gImg,
-      g_type AS gType,
-      g_is_over_due AS gIsOverDue
+      g_type AS gType
     FROM
       goods
     WHERE

@@ -18,9 +18,8 @@ public class GoodsServiceImpl implements GoodsService {
   GoodsDao goodsDao;
 
   @Override
-  public R listGood(Integer page, Integer limit) {
-    Page<GoodsListVo> pg = PageHelper.startPage(page,limit);
+  public R listGood() {
     List<GoodsListVo> goods = goodsDao.listGood();
-    return R.Success((int)pg.getTotal(), goods);
+    return R.Success(goods);
   }
 }

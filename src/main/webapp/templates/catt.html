@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible">
+  <title>CATALOG</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!--Bootstrap CSS-->
+  <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css"
+        th:href="@{../libs/bootstrap/css/bootstrap.min.css}">
+  <!--FontAwesome CSS-->
+  <link rel="stylesheet" href="../libs/fontawesome/css/all.min.css">
+  <link>
+  <!-- Flaticon CSS -->
+  <link rel="stylesheet" href="../libs/flaticon/flaticon.css">
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="../libs/owl.carousel/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../libs/owl.carousel/css/owl.theme.default.min.css">
+  <!-- Animated Headlines CSS -->
+  <link rel="stylesheet" href="../libs/jquery-animated-headlines/css/jquery.animatedheadline.css">
+  <!-- Magnific Popup CSS -->
+  <link rel="stylesheet" href="../libs/magnific-popup/css/magnific-popup.css">
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="../libs/animate.css/css/animate.min.css">
+  <!-- Meanmenu CSS -->
+  <link rel="stylesheet" href="../libs/meanmenu/css/meanmenu.min.css">
+  <!--LayUI css-->
+  <link rel="stylesheet" href="../libs/layui/css/layui.css">
+  <!-- Site Stylesheet -->
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/catt.css">
+
+
+  <!-- Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap"
+        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+<a href="#wrapper" data-type="section-switch" class="scrollup">
+  <i class="fas fa-angle-double-up"></i>
+</a>
+
+<!-- ScrollUp End Here -->
+<!-- Preloader Start Here -->
+<div id="preloader"></div>
+<!-- Preloader End Here -->
+<div id="wrapper" class="wrapper">
+
+  <!--=====================================-->
+  <!--=            Header Start           =-->
+  <!--=====================================-->
+  <header class="header">
+    <div id="rt-sticky-placeholder"></div>
+    <div id="header-menu" class="header-menu menu-layout1 pd-x-20">
+      <div class="container-fluid">
+        <div class="row d-flex align-items-center">
+          <div class="col-lg-2">
+            <div class="logo-area">
+              <a href="index.html" th:href="@{index.html}" class="temp-logo">
+                <img src="../img/sharon.png" th:src="@{../img/sharon.png}" alt="logo" class="img-fluid"
+                     style="max-width: 89%">
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-7 d-flex justify-content-end">
+            <nav id="dropdown" class="template-main-menu">
+              <ul>
+                <li>
+                  <a href="type.html">COAT</a>
+                </li>
+                <li>
+                  <a href="type.html">SHIRT</a>
+                </li>
+                <li>
+                  <a href="type.html">SKIRT</a>
+                </li>
+                <li>
+                  <a href="type.html">PLANTS</a>
+                </li>
+                <li>
+                  <a href="type.html">SHOES</a>
+                </li>
+                <li>
+                  <a href="">CONTACT</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-lg-3 d-flex justify-content-end">
+            <div class="header-action-layout1">
+              <ul>
+                <li class="header-login-icon">
+                  <a href="index.html" class="color-light" data-toggle="tooltip" data-placement="top"
+                     title="Login/Register">
+                    <i class="far fa-user"></i>
+                  </a>
+                </li>
+                <li class="header-btn">
+                  <a href="car.html" class="item-btn">My ShoppingBAG</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<!--=====================================-->
+<!--=            Banner Start           =-->
+<!--=====================================-->
+<section class="main-banner-wrap-layout1 bg-dark-overlay bg-common minus-mgt-90"
+         data-bg-image="../img/banner/banner1.jpg">
+  <div class="container">
+    <div class="main-banner-box-layout1 animated-headline">
+      <h1 class="ah-headline item-title">
+                        <span class="ah-words-wrapper">
+                            <b class="is-visible">EAT &amp; SLEEP &amp; KSWL</b>
+                            <b>EAT &amp; SLEEP &amp; KSWL</b>
+                        </span>
+      </h1>
+      <div class="item-subtitle">Keep Shining With Love</div>
+      <div class="search-box-layout1">
+        <form action="#">
+          <div class="row no-gutters">
+            <div class="col-lg-3 form-group">
+              <div class="input-search-btn search-type" data-toggle="modal" data-target="#modal-type">
+                <img class="icon" src="../img/icon/typelis.png">
+                <label>Select Type</label>
+              </div>
+            </div>
+            <div class="col-lg-3 form-group">
+              <div class="input-search-btn search-range" data-toggle="modal" data-target="#modal-range">
+                <img class="icon" src="../img/icon/money.png">
+                <label>Select Range</label>
+              </div>
+            </div>
+            <div class="col-lg-4 form-group">
+              <div class="input-search-btn search-keyword">
+                <i class="fas fa-text-width"></i>
+                <input type="text" class="form-control" placeholder="Enter Keyword here ..." name="keyword">
+              </div>
+            </div>
+            <div class="col-lg-2 form-group">
+              <button type="submit" class="submit-btn"><i class="fas fa-search"></i>Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--=====================================-->
+<!--=            Category Start           =-->
+<!--=====================================-->
+<section class="section-padding-top-heading">
+  <div class="container">
+    <div class="heading-layout1">
+      <h2 class="heading-title">Popular Categories</h2>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-4 col-sm-6">
+        <div class="category-box-layout1">
+          <a href="#">
+            <div class="item-icon">
+              <img src="../img/icon/coat.png" class="icon-row">
+            </div>
+            <div class="item-content">
+              <h3 class="item-title">COAT</h3>
+              <div class="item-count">99 +</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-4 col-sm-6">
+        <div class="category-box-layout1">
+          <a href="#">
+            <div class="item-icon">
+              <img src="../img/icon/shirt.png" class="icon-row">
+            </div>
+            <div class="item-content">
+              <h3 class="item-title">SHIRT</h3>
+              <div class="item-count">99 +</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-4 col-sm-6">
+        <div class="category-box-layout1">
+          <a href="#">
+            <div class="item-icon">
+              <img src="../img/icon/skirt.png" class="icon-row">
+            </div>
+            <div class="item-content">
+              <h3 class="item-title">SKIRT</h3>
+              <div class="item-count">99 +</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-4 col-sm-6">
+        <div class="category-box-layout1">
+          <a href="#">
+            <div class="item-icon">
+              <img src="../img/icon/plants.png" class="icon-row">
+            </div>
+            <div class="item-content">
+              <h3 class="item-title">PLANTS</h3>
+              <div class="item-count">99 +</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-4 col-sm-6">
+        <div class="category-box-layout1">
+          <a href="#">
+            <div class="item-icon">
+              <img src="../img/icon/shoes.png" class="icon-row">
+            </div>
+            <div class="item-content">
+              <h3 class="item-title">SHOES</h3>
+              <div class="item-count">99 +</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--=====================================-->
+<!--=       Product Box Start           =-->
+<!--=====================================-->
+<section class="section-padding-top-heading bg-accent">
+  <div class="container">
+    <div class="heading-layout1">
+      <h2 class="heading-title">Hot Goods</h2>
+    </div>
+    <div class="row">
+      <!--<div class="col-lg-3 col-md-4 col-sm-6">-->
+        <!--<div class="product-box-layout1">-->
+          <!--<div class="item-img">-->
+            <!--<a href=""><img src="../img/product/product1.jpg" alt="Product"></a>-->
+          <!--</div>-->
+          <!--<div class="item-content">-->
+            <!--<h3 class="item-title"><a href="">HD 27 inch Mac 1 year used only</a></h3>-->
+            <!--<ul class="entry-meta">-->
+              <!--<li><i class="far fa-clock"></i>3 months ago</li>-->
+              <!--<li><i class="fas fa-map-marker-alt"></i>Port Chester, New York</li>-->
+            <!--</ul>-->
+            <!--<div class="item-price">-->
+              <!--<span class="currency-symbol">$</span>-->
+              <!--2,500-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    </div>
+    <div class="ly-margin-lr-min">
+      <table class="layui-hide" id="goods_list" lay-filter="goods_list_event"></table>
+    </div>
+  </div>
+</section>
+
+
+<!--=====================================-->
+<!--=       Footer Start           	=-->
+<!--=====================================-->
+<footer>
+  <div class="footer-top-wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-sm-6">
+          <div class="footer-box-layout1">
+            <div class="footer-logo">
+              <img src="../img/sharon.png" alt="logo">
+            </div>
+            <div class="footer-menu-box">
+              <ul>
+                <li><a>Store Locator</a></li>
+                <li><a>Find a Boutique</a></li>
+                <li><a>Sharon Watches Stores</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="footer-box-layout1">
+            <div class="footer-title">
+              <h3>CUSTOMER CARE</h3>
+            </div>
+            <div class="footer-menu-box">
+              <ul>
+                <li><a href="#">Exclusive Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Help/FAQs</a></li>
+                <li><a href="#">Orders &amp; Shipping</a></li>
+                <li><a href="#">Return &amp; Refunds</a></li>
+                <li><a href="#">Authenticity</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="footer-box-layout1">
+            <div class="footer-title">
+              <h3>ABOUT US</h3>
+            </div>
+            <div class="footer-menu-box">
+              <ul>
+                <li><a href="#">Company Profile</a></li>
+                <li><a href="#">Corporate Data</a></li>
+                <li><a href="#">Inverstor Relations</a></li>
+                <li><a href="#">Careers</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="footer-box-layout1">
+            <div class="footer-title">
+              <h3>LEGAL</h3>
+            </div>
+            <div class="footer-menu-box">
+              <ul>
+                <li><a href="#">Legal Notes</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">General Conditions of Purchase</a></li>
+                <li><a href="#">Ethical Code</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom-wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="copyright-text">
+            &copy; SHARONLAU
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!--=====================================-->
+<!--=       Modal Start           	 	=-->
+<!--=====================================-->
+<div class="modal fade modal-type" id="modal-type" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <button type="button" class="close modal-close" data-dismiss="modal" aria-label="Close">
+        <span class="fas fa-times" aria-hidden="true"></span>
+      </button>
+      <div class="type-list">
+        <h4 class="item-title">Type</h4>
+        <ul>
+          <li><a href="#">COAT</a></li>
+          <li><a href="#">SHIRT</a></li>
+          <li><a href="#">SKIRT</a></li>
+          <li><a href="#">PLANTS</a></li>
+          <li><a href="#">SHOES</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade modal-type" id="modal-range" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <button type="button" class="close modal-close" data-dismiss="modal" aria-label="Close">
+        <span class="fas fa-times" aria-hidden="true"></span>
+      </button>
+      <div class="type-list">
+        <h4 class="item-title">Range</h4>
+        <ul>
+          <li>
+            <a href="#">0-199</a>
+          </li>
+          <li>
+            <a href="#">200-499</a>
+          </li>
+          <li>
+            <a href="#">500-799</a>
+          </li>
+          <li>
+            <a href="#">800-999</a>
+          </li>
+          <li>
+            <a href="#">1000+</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--=====================================-->
+<!--=       Product Box SET         	 	=-->
+<!--=====================================-->
+<!-- 课程详情 -->
+<script type="text/html" id="goods_detail">
+  <div class="layui-layout-body">
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+      <legend>课程信息</legend>
+    </fieldset>
+    <div class="layui-row layui-col-space10">
+      <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+        课程ID： {{d.csId}}
+      </div>
+      <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+        课程名称： {{d.csName}}
+      </div>
+    </div>
+    <div class="layui-row layui-col-space10">
+      <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+        总课时： {{d.csHour}}
+      </div>
+      <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+        课程开始时间： {{d.csStartTime}}
+      </div>
+    </div>
+    <div class="layui-row layui-col-space10">
+      <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+        授课教练ID： {{d.chId}}
+      </div>
+      <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+        授课教练： {{d.chName}}
+      </div>
+    </div>
+  </div>
+</script>
+
+
+</body>
+
+
+<!-- Jquery Js -->
+<script src="../libs/jquery/js/jquery.min.js"></script>
+<!-- Popper Js -->
+<script src="../libs/popper.js/js/popper.min.js"></script>
+<!-- Bootstrap Js -->
+<script src="../libs/bootstrap/js/bootstrap.min.js"></script>
+<!-- Waypoints Js -->
+<script src="../libs/waypoints/js/jquery.waypoints.min.js"></script>
+<!-- Counterup Js -->
+<script src="../libs/jquery.counterup/js/jquery.counterup.min.js"></script>
+<!-- Owl Carousel Js -->
+<script src="../libs/owl.carousel/js/owl.carousel.min.js"></script>
+<!-- ImagesLoaded Js -->
+<script src="../libs/imagesloaded/js/imagesloaded.pkgd.min.js"></script>
+<!-- Isotope Js -->
+<script src="../libs/isotope-layout/js/isotope.pkgd.min.js"></script>
+<!-- Animated Headline Js -->
+<script src="../libs/jquery-animated-headlines/js/jquery.animatedheadline.min.js"></script>
+<!-- Magnific Popup Js -->
+<script src="../libs/magnific-popup/js/jquery.magnific-popup.min.js"></script>
+<!-- ElevateZoom Js -->
+<script src="../libs/elevatezoom/js/jquery.elevateZoom-2.2.3.min.js"></script>
+<!-- Bootstrap Validate Js -->
+<script src="../libs/bootstrap-validator/js/validator.min.js"></script>
+<!-- Meanmenu Js -->
+<script src="../libs/meanmenu/js/jquery.meanmenu.min.js"></script>
+<!-- Google Map js -->
+<script src="https://ditu.google.cn/maps/api/js?key=AIzaSyBtmXSwv4YmAKtcZyyad9W7D4AC08z0Rb4"></script>
+<!--Lay UI JS-->
+<script src="../libs/layui/layui.js"></script>
+<!-- Site Scripts -->
+<script src="../js/app.js"></script>
+<script src="../js/catt.js"></script>
+<script src="../js/main.js"></script>
+
+
+</html>

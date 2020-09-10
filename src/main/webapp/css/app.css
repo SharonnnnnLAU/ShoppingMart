@@ -30,7 +30,7 @@ CSS INDEX
     5.8 Counter
     5.9 Error Page
     5.10 FAQ
-    5.11 Location Search
+    5.11 Shopping Bag
     5.12 Modal
     5.13 Post Ad
     5.14 Pricing Table
@@ -2670,7 +2670,7 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
 
 /*------------------- 5.3 Banner -------------------*/
 .main-banner-wrap-layout1 {
-    padding: 19.75rem 0 28.5rem;
+    padding: 20.75rem 0 29.5rem;
 }
 
 @media only screen and (max-width: 1199px) {
@@ -2711,6 +2711,10 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
     .main-banner-wrap-layout2 {
         padding: 2.8125rem 0 5.625rem;
     }
+}
+
+.main-banner-wrap-layout3 {
+    padding: 0.25rem 0 5.5rem;
 }
 
 .main-banner-box-layout1 {
@@ -3739,82 +3743,24 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
     margin-bottom: 0;
 }
 
-/*------------------- 5.11 Location Search -------------------*/
-.location-box-layout1 {
-    position: relative;
-    border-radius: 2px;
-    overflow: hidden;
-    height: 290px;
-    margin-bottom: 1.875rem;
+/*------------------- 5.11 Shopping Bag -------------------*/
+.shoppingbag-box {
+    margin-top: 2.5rem;
 }
-
-.location-box-layout1 a {
-    display: block;
+.shoppingbag-box .btn-line {
+    display: inline;
 }
-
-.location-box-layout1 a .item-img img {
-    max-width: inherit !important;
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-    -webkit-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-}
-
-.location-box-layout1 a .item-content {
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.6);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 2;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-    padding: 10px;
-    -webkit-transform: translateY(30px);
-    -ms-transform: translateY(30px);
-    transform: translateY(30px);
-}
-
-.location-box-layout1 a .item-content .item-title {
-    color: #ffffff;
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 0;
-    margin-bottom: 0.25rem;
-}
-
-.location-box-layout1 a .item-content .item-count {
-    color: #ffffff;
-    opacity: 0;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-}
-
-.location-box-layout1:hover a .item-img img {
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05);
-}
-
-.location-box-layout1:hover a .item-content {
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-}
-
-.location-box-layout1:hover a .item-content .item-count {
-    opacity: 1;
+.shoppingbag-box2 {
+    padding-left: 18em;
 }
 
 /*------------------- 5.12 Modal -------------------*/
-.modal-location .modal-dialog .modal-content {
+.modal-type .modal-dialog .modal-content {
     min-height: 26.25rem;
     padding: 2.5rem;
 }
 
-.modal-location .modal-dialog .modal-content .modal-close {
+.modal-type .modal-dialog .modal-content .modal-close {
     position: absolute;
     top: 0.625rem;
     right: 0.625rem;
@@ -3832,16 +3778,16 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
     cursor: pointer;
 }
 
-.modal-location .modal-dialog .modal-content .location-list .item-title {
+.modal-type .modal-dialog .modal-content .type-list .item-title {
     font-weight: 700;
     color: #111111;
 }
 
-.modal-location .modal-dialog .modal-content .location-list ul li {
+.modal-type .modal-dialog .modal-content .type-list ul li {
     border-top: 0.0625rem solid #d4ded9;
 }
 
-.modal-location .modal-dialog .modal-content .location-list ul li a {
+.modal-type .modal-dialog .modal-content .type-list ul li a {
     padding: 0.5rem 0;
     display: block;
     position: relative;
@@ -3850,24 +3796,24 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
     transition: all 0.3s ease-in-out;
 }
 
-.modal-location .modal-dialog .modal-content .location-list ul li a .item-icon {
+.modal-type .modal-dialog .modal-content .type-list ul li a .item-icon {
     margin-right: 0.5rem;
 }
 
-.modal-location .modal-dialog .modal-content .location-list ul li a .item-icon img {
+.modal-type .modal-dialog .modal-content .type-list ul li a .item-icon img {
     max-width: 0.9375rem;
     max-height: 0.9375rem;
 }
 
-.modal-location .modal-dialog .modal-content .location-list ul li a:hover {
+.modal-type .modal-dialog .modal-content .type-list ul li a:hover {
     color: #194A58;
 }
 
-.modal-location .modal-dialog .modal-content .location-list ul li a:hover:after {
+.modal-type .modal-dialog .modal-content .type-list ul li a:hover:after {
     color: #194A58;
 }
 
-.modal-location .modal-dialog .modal-content .location-list ul li a:after {
+.modal-type .modal-dialog .modal-content .type-list ul li a:after {
     content: "\f105";
     font-family: "Font Awesome 5 Free";
     font-size: 0.875rem;
@@ -4105,7 +4051,6 @@ nav.template-main-menu > ul > li:hover ul.mega-menu {
 /*------------------- 5.15 Process -------------------*/
 .process-wrap-layout1 {
     padding: 6.875rem 0 7.5rem;
-    background-image: url("../media/figure/process-bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;

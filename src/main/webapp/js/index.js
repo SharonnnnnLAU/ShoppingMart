@@ -1,3 +1,4 @@
 $("#guesrLog").click(function () {
-  window.open('/home/catt.html');
+  window.open('/templates/catt.html');
+  // window.location.href="/home/catt.html";
 });

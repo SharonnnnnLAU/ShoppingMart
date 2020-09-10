@@ -35,11 +35,6 @@ public class GoodsListVo {
    */
   private Integer gType;
 
-  /**
-   * 0：没有过期  1：过期
-   */
-  private Boolean gIsOverDue;
-
 
   private static final long serialVersionUID = 1L;
 }
