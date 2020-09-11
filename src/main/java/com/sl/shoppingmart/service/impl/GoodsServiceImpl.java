@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.sl.shoppingmart.dao.GoodsDao;
 import com.sl.shoppingmart.manager.result.R;
+import com.sl.shoppingmart.manager.result.Status;
 import com.sl.shoppingmart.model.vo.GoodsDetailVo;
 import com.sl.shoppingmart.model.vo.GoodsListVo;
 import com.sl.shoppingmart.service.GoodsService;
@@ -32,7 +33,9 @@ public class GoodsServiceImpl implements GoodsService {
 
   @Override
   public R goodsDetail(Integer gId) {
-    GoodsDetailVo good = goodsDao.goodsDetail(gId);
-    return R.Success(good);
+    GoodsDetailVo goodDetail = goodsDao.goodsDetail(gId);
+    if (goodDetail == null)
+      return R.Error(Status.ARGS_NOT_ALLOW_NULL);
+    return R.Success(goodDetail);
   }
 }

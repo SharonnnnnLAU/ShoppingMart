@@ -149,11 +149,19 @@
   </select>
 
 
-  <!--商品id查询-->
-  <select id="goodsDetail" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select
-    g_id, g_desc, g_price, g_name, g_type, g_img
-    from goods
-    where g_id = #{gId,jdbcType=INTEGER}
+  <!--商品id获取商品详情-->
+  <select id="goodsDetail" resultType="com.sl.shoppingmart.model.vo.GoodsDetailVo">
+    SELECT
+      g_id AS gId,
+      g_desc as gDesc,
+      g_price AS gPrice,
+      g_name AS gName,
+      g_type gType,
+      g_img AS gImg
+    FROM
+      goods
+    WHERE
+      g_id = #{gId} and
+      g_isdel = 0
   </select>
 </mapper>

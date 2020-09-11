@@ -1,3 +1,10 @@
+// layui.config({
+//   base: '../layui_exts/' //配置 layui 第三方扩展组件存放的基础目录
+// }).extend({
+//   laymock:'laymock/laymock', //mock数据
+//   layfilter:'layfilter/layfilter'
+// });
+
 layui.use(["table", "util", "form", "layedit", "laytpl"], function () {
   var table = layui.table,
       util = layui.util,
@@ -69,11 +76,13 @@ layui.use(["table", "util", "form", "layedit", "laytpl"], function () {
    */
 
   // 监听行工具事件
-  table.on('good(good_list_event)', function (obj) {
+  table.on('tool(good_list_event)', function (obj) {
     var data = obj.data,
         layEvent = obj.event;
+    console.log("in good_list_event")
     switch (layEvent) {
       case 'detail':
+        debugger
         console.log("detail")
         showgoodsDetail($, laytpl, data)
         break;

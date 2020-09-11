@@ -1,7 +1,10 @@
 package com.sl.shoppingmart.model.vo;
 
+import lombok.Data;
+
 import java.math.BigDecimal;
 
+@Data
 public class GoodsDetailVo {
   /**
    * 商品id

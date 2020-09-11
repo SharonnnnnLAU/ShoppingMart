@@ -23,6 +23,7 @@ public class GoodsController {
 //    System.out.println("test");
 //    return "index";
 //  }
+
   @RequestMapping("/listGood")
   public R listGood() {
     return goodsService.listGood();
@@ -31,20 +32,21 @@ public class GoodsController {
   /**
    * 商品类型 0:coat 1:plants 2:shirt 3:shoes 4:skirt
    */
+
   @RequestMapping("/coatType")
-  public R coatType(Integer type) { return goodsService.typeGood(0);}
+  public R coatType() { return goodsService.typeGood(0);}
 
   @RequestMapping("/plantsType")
-  public R plantsType(Integer type) { return goodsService.typeGood(1);}
+  public R plantsType() { return goodsService.typeGood(1);}
 
   @RequestMapping("/shirtType")
-  public R shirtType(Integer type) { return goodsService.typeGood(2);}
+  public R shirtType() { return goodsService.typeGood(2);}
 
   @RequestMapping("/shoesType")
-  public R shoesType(Integer type) { return goodsService.typeGood(3);}
+  public R shoesType() { return goodsService.typeGood(3);}
 
   @RequestMapping("/skirtType")
-  public R skirtType(Integer type) { return goodsService.typeGood(4);}
+  public R skirtType() { return goodsService.typeGood(4);}
 
   @RequestMapping("/goodsDetail")
   public R goodsDetail(Integer gId) {return goodsService.goodsDetail(gId);}

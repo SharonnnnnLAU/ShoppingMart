@@ -1047,12 +1047,18 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="257" parent="236" name="PRIMARY">
+    <column id="257" parent="236" name="o_g_num">
+      <Position>7</Position>
+      <Comment>每件商品数量</Comment>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="258" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>o_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="258" parent="237" name="sc_id">
+    <column id="259" parent="237" name="sc_id">
       <Position>1</Position>
       <Comment>购物车id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -1060,25 +1066,31 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="237" name="g_id">
+    <column id="260" parent="237" name="g_id">
       <Position>2</Position>
       <Comment>商品id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="237" name="sc_isdel">
+    <column id="261" parent="237" name="sc_isdel">
       <Position>3</Position>
       <Comment>0：未删除 1：已删除</Comment>
       <DataType>tinyint(1) unsigned|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="261" parent="237" name="PRIMARY">
+    <column id="262" parent="237" name="g_num">
+      <Position>4</Position>
+      <Comment>商品数量</Comment>
+      <DataType>int(3) unsigned|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="263" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>sc_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="262" parent="238" name="u_id">
+    <column id="264" parent="238" name="u_id">
       <Position>1</Position>
       <Comment>用户id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -1086,32 +1098,38 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="238" name="u_pwd">
+    <column id="265" parent="238" name="u_name">
       <Position>2</Position>
+      <Comment>用户姓名</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="266" parent="238" name="u_pwd">
+      <Position>3</Position>
       <Comment>用户密码</Comment>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="238" name="sc_id">
-      <Position>3</Position>
+    <column id="267" parent="238" name="sc_id">
+      <Position>4</Position>
       <Comment>购物车id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="238" name="u_type">
-      <Position>4</Position>
+    <column id="268" parent="238" name="u_type">
+      <Position>5</Position>
       <Comment>0：用户 1：管理员</Comment>
       <DataType>tinyint(1) unsigned|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="266" parent="238" name="u_address">
-      <Position>5</Position>
+    <column id="269" parent="238" name="u_address">
+      <Position>6</Position>
       <Comment>用户地址</Comment>
       <DataType>varchar(64)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="267" parent="238" name="PRIMARY">
+    <key id="270" parent="238" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>u_id</ColNames>
       <Primary>1</Primary>
