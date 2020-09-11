@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sl.shoppingmart.dao.OrderDao">
+  <resultMap id="BaseResultMap" type="com.sl.shoppingmart.pojo.Order">
+    <id column="o_id" jdbcType="INTEGER" property="oId" />
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="g_id" jdbcType="INTEGER" property="gId" />
+    <result column="o_createtime" jdbcType="TIMESTAMP" property="oCreatetime" />
+    <result column="o_status" jdbcType="BOOLEAN" property="oStatus" />
+    <result column="o_isdel" jdbcType="BOOLEAN" property="oIsdel" />
+    <result column="o_g_num" jdbcType="INTEGER" property="oGNum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    o_id, u_id, g_id, o_createtime, o_status, o_isdel, o_g_num
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from order
+    where o_id = #{oId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from order
+    where o_id = #{oId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="o_id" keyProperty="oId" parameterType="com.sl.shoppingmart.pojo.Order" useGeneratedKeys="true">
+    insert into order (u_id, g_id, o_createtime, 
+      o_status, o_isdel, o_g_num
+      )
+    values (#{uId,jdbcType=INTEGER}, #{gId,jdbcType=INTEGER}, #{oCreatetime,jdbcType=TIMESTAMP}, 
+      #{oStatus,jdbcType=BOOLEAN}, #{oIsdel,jdbcType=BOOLEAN}, #{oGNum,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="o_id" keyProperty="oId" parameterType="com.sl.shoppingmart.pojo.Order" useGeneratedKeys="true">
+    insert into order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="gId != null">
+        g_id,
+      </if>
+      <if test="oCreatetime != null">
+        o_createtime,
+      </if>
+      <if test="oStatus != null">
+        o_status,
+      </if>
+      <if test="oIsdel != null">
+        o_isdel,
+      </if>
+      <if test="oGNum != null">
+        o_g_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uId != null">
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="gId != null">
+        #{gId,jdbcType=INTEGER},
+      </if>
+      <if test="oCreatetime != null">
+        #{oCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oStatus != null">
+        #{oStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="oIsdel != null">
+        #{oIsdel,jdbcType=BOOLEAN},
+      </if>
+      <if test="oGNum != null">
+        #{oGNum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sl.shoppingmart.pojo.Order">
+    update order
+    <set>
+      <if test="uId != null">
+        u_id = #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="gId != null">
+        g_id = #{gId,jdbcType=INTEGER},
+      </if>
+      <if test="oCreatetime != null">
+        o_createtime = #{oCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oStatus != null">
+        o_status = #{oStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="oIsdel != null">
+        o_isdel = #{oIsdel,jdbcType=BOOLEAN},
+      </if>
+      <if test="oGNum != null">
+        o_g_num = #{oGNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where o_id = #{oId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sl.shoppingmart.pojo.Order">
+    update order
+    set u_id = #{uId,jdbcType=INTEGER},
+      g_id = #{gId,jdbcType=INTEGER},
+      o_createtime = #{oCreatetime,jdbcType=TIMESTAMP},
+      o_status = #{oStatus,jdbcType=BOOLEAN},
+      o_isdel = #{oIsdel,jdbcType=BOOLEAN},
+      o_g_num = #{oGNum,jdbcType=INTEGER}
+    where o_id = #{oId,jdbcType=INTEGER}
+  </update>
+</mapper>

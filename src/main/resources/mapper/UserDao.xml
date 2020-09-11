@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sl.shoppingmart.dao.UserDao">
+  <resultMap id="BaseResultMap" type="com.sl.shoppingmart.pojo.User">
+    <id column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="u_name" jdbcType="VARCHAR" property="uName" />
+    <result column="u_pwd" jdbcType="VARCHAR" property="uPwd" />
+    <result column="sc_id" jdbcType="INTEGER" property="scId" />
+    <result column="u_type" jdbcType="BOOLEAN" property="uType" />
+    <result column="u_address" jdbcType="VARCHAR" property="uAddress" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    u_id, u_name, u_pwd, sc_id, u_type, u_address
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where u_id = #{uId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where u_id = #{uId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="u_id" keyProperty="uId" parameterType="com.sl.shoppingmart.pojo.User" useGeneratedKeys="true">
+    insert into user (u_name, u_pwd, sc_id, 
+      u_type, u_address)
+    values (#{uName,jdbcType=VARCHAR}, #{uPwd,jdbcType=VARCHAR}, #{scId,jdbcType=INTEGER}, 
+      #{uType,jdbcType=BOOLEAN}, #{uAddress,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="u_id" keyProperty="uId" parameterType="com.sl.shoppingmart.pojo.User" useGeneratedKeys="true">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uName != null">
+        u_name,
+      </if>
+      <if test="uPwd != null">
+        u_pwd,
+      </if>
+      <if test="scId != null">
+        sc_id,
+      </if>
+      <if test="uType != null">
+        u_type,
+      </if>
+      <if test="uAddress != null">
+        u_address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uName != null">
+        #{uName,jdbcType=VARCHAR},
+      </if>
+      <if test="uPwd != null">
+        #{uPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="scId != null">
+        #{scId,jdbcType=INTEGER},
+      </if>
+      <if test="uType != null">
+        #{uType,jdbcType=BOOLEAN},
+      </if>
+      <if test="uAddress != null">
+        #{uAddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sl.shoppingmart.pojo.User">
+    update user
+    <set>
+      <if test="uName != null">
+        u_name = #{uName,jdbcType=VARCHAR},
+      </if>
+      <if test="uPwd != null">
+        u_pwd = #{uPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="scId != null">
+        sc_id = #{scId,jdbcType=INTEGER},
+      </if>
+      <if test="uType != null">
+        u_type = #{uType,jdbcType=BOOLEAN},
+      </if>
+      <if test="uAddress != null">
+        u_address = #{uAddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where u_id = #{uId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sl.shoppingmart.pojo.User">
+    update user
+    set u_name = #{uName,jdbcType=VARCHAR},
+      u_pwd = #{uPwd,jdbcType=VARCHAR},
+      sc_id = #{scId,jdbcType=INTEGER},
+      u_type = #{uType,jdbcType=BOOLEAN},
+      u_address = #{uAddress,jdbcType=VARCHAR}
+    where u_id = #{uId,jdbcType=INTEGER}
+  </update>
+</mapper>
