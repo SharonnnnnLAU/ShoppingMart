@@ -112,7 +112,7 @@
     --------------------------------------*/
     if ($.fn.meanmenu) {
         $('nav#dropdown').meanmenu({
-            siteLogo: "<div class='mobile-menu-nav-back'><a class='logo-mobile' href='index.html'><img src='media/mobile-logo.png' alt='logo' class='img-fluid'/></a></div>"
+            siteLogo: "<div class='mobile-menu-nav-back'><a class='logo-mobile' href='login.html'><img src='media/mobile-logo.png' alt='logo' class='img-fluid'/></a></div>"
         });
     }
 

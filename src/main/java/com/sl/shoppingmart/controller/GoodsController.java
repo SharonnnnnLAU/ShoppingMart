@@ -49,5 +49,6 @@ public class GoodsController {
   public R skirtType() { return goodsService.typeGood(4);}
 
   @RequestMapping("/goodsDetail")
-  public R goodsDetail(Integer gId) {return goodsService.goodsDetail(gId);}
+  public R goodsDetail(Integer gId) {
+    return goodsService.goodsDetail(gId);}
 }

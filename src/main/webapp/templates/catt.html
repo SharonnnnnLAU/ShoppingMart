@@ -77,19 +77,19 @@
                   <a href="coat_type.html">COAT</a>
                 </li>
                 <li>
-                  <a href="coat_type.html">SHIRT</a>
+                  <a href="shirt_type.html">SHIRT</a>
                 </li>
                 <li>
-                  <a href="coat_type.html">SKIRT</a>
+                  <a href="skirt_type.html">SKIRT</a>
                 </li>
                 <li>
-                  <a href="coat_type.html">PLANTS</a>
+                  <a href="plants_type.html">PLANTS</a>
                 </li>
                 <li>
-                  <a href="coat_type.html">SHOES</a>
+                  <a href="shoes_type.html">SHOES</a>
                 </li>
                 <li>
-                  <a href="">CONTACT</a>
+                  <a href="user_info.html">ME</a>
                 </li>
               </ul>
             </nav>
@@ -98,11 +98,11 @@
             <div class="header-action-layout1">
               <ul>
                 <li class="header-login-icon">
-                  <a href="index.html" class="color-light" data-toggle="tooltip" data-placement="top"
+                  <a href="login.html" class="color-light" data-toggle="tooltip" data-placement="top"
                      title="Login/Register">
                     <i class="far fa-user"></i>
                   </a>
-                  <a href="index.html" class="color-light" data-toggle="tooltip" data-placement="top"
+                  <a href="login.html" class="color-light" data-toggle="tooltip" data-placement="top"
                      title="Staff Login">
                     <i><img src="../img/icon/staff.png" class="icon-staff" alt="icon-staff"></i>
                   </a>
@@ -402,23 +402,23 @@
   <div class="layui-layout-body">
     <div class="layui-row layui-col-space10">
       <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
-        商品名称： {{d.gName}}
+        商品名称： {{d.gname}}
       </div>
       <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
-        商品价格： {{d.gPrice}}
+        商品价格： {{d.gprice}}
       </div>
     </div>
   </div>
   <div class="layui-row layui-col-space10">
     <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
-      商品介绍： {{d.gDesc}}
+      商品介绍： {{d.gdesc}}
     </div>
   </div>
-  <!--<div class="layui-row layui-col-space10">-->
-    <!--<div class="layui-col-xs12 layui-col-sm12 layui-col-md6">-->
-      <!--图片详情： {{d.gImg}}-->
-    <!--</div>-->
-  <!--</div>-->
+  <div class="layui-row layui-col-space10">
+    <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+      图片详情： <img src="../{{d.gimg}}">
+    </div>
+  </div>
 </script>
 
 </body>

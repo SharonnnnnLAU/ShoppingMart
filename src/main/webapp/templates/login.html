@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>SLLLLLL</title>
+  <link rel="stylesheet" href="../libs/layui/css/layui.css" th:href="@{../libs/layui/css/layui.css}" media="all"/>
+  <link rel="stylesheet" href="../css/index.css" th:href="@{../css/index.css}" media="all"/>
+  <style>
+    /* 覆盖原框架样式 */
+    .layui-elem-quote {
+      background-color: inherit !important;
+    }
+
+    .layui-input, .layui-select, .layui-textarea {
+      background-color: inherit;
+      padding-left: 30px;
+    }
+  </style>
+</head>
+<body style="background: url(../img/index.jpg)">
+<!-- Head -->
+<!--<div class="layui-fluid">-->
+<!--<div class="layui-row layui-col-space15">-->
+<!--<div class="layui-col-sm12 layui-col-md12 zyl_mar_01">-->
+<!--&lt;!&ndash;<blockquote class="layui-elem-quote">学生管理系统后台登陆界面</blockquote>&ndash;&gt;-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!-- Head End -->
+
+<!-- Carousel -->
+<!--<div class="layui-row">-->
+<!--<div class="layui-col-sm12 layui-col-md12">-->
+<!--<div class="layui-carousel zyl_login_height" id="zyllogin" lay-filter="zyllogin">-->
+<!--<div carousel-item="">-->
+<!--<div>-->
+<!--<div class="zyl_login_cont"></div>-->
+<!--</div>-->
+<!--<div>-->
+<!--<img src="../img/index.jpg" th:src="@{../img/index.jpg}"/>-->
+<!--</div>-->
+<!--<div>-->
+<!--<div class="background">-->
+<!--<span></span><span></span><span></span>-->
+<!--<span></span><span></span><span></span>-->
+<!--<span></span><span></span><span></span>-->
+<!--<span></span><span></span><span></span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div>-->
+<!--<img src="../img/index.jpg" th:src="@{../img/index.jpg}"/>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!-- Carousel End -->
+
+<!-- Footer -->
+<!--<div class="layui-row">-->
+<!--<div class="layui-col-sm12 layui-col-md12 zyl_center zyl_mar_01">-->
+<!--© 2019 - luojay学生管理系统登陆登陆界面版权所有-->
+<!--</div>-->
+<!--</div>-->
+<!-- Footer End -->
+
+
+<!-- LoginForm -->
+<div class="zyl_lofo_main">
+  <div class="layui-row layui-col-space15">
+    <form class="layui-form zyl_pad_01" action="">
+      <div class="layui-col-sm12 layui-col-md12">
+        <div class="layui-form-item">
+          <input type="text" name="userName" lay-verify="required|userName" autocomplete="off" placeholder="账号"
+                 class="layui-input">
+          <i class="layui-icon layui-icon-username zyl_lofo_icon"></i>
+        </div>
+      </div>
+      <div class="layui-col-sm12 layui-col-md12">
+        <div class="layui-form-item">
+          <input type="password" name="userPwd" lay-verify="required|pass" autocomplete="off" placeholder="密码"
+                 class="layui-input">
+          <i class="layui-icon layui-icon-password zyl_lofo_icon"></i>
+        </div>
+      </div>
+      <div class="layui-col-sm12 layui-col-md12 zyl_mar_01">
+        <button class="layui-btn layui-btn-fluid" style="background-color: #194A58;" lay-submit="" lay-filter="login">
+          立即登录
+        </button>
+      </div>
+      <div class="layui-col-sm12 layui-col-md12 zyl_mar_01">
+        <button class="layui-btn layui-btn-fluid" style="background-color: #194A58;" lay-submit="" id="stfLog">管理员登陆
+        </button>
+      </div>
+      <div class="layui-col-sm12 layui-col-md12 zyl_mar_01">
+        <button class="layui-btn layui-btn-fluid" style="background-color: #194A58;" lay-submit="" id="guestLog">游客登陆
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- LoginForm End -->
+
+
+<!-- Jquery Js -->
+<script type="text/javascript" src="../libs/jquery.min.js" th:src="@{../libs/jquery.min.js}"></script>
+<!-- Layui Js -->
+<script type="text/javascript" src="../libs/layui/layui.js" th:src="@{../libs/layui/layui.js}"></script>
+<!-- Jqarticle Js -->
+<script type="text/javascript" src="../libs/jparticle.min.js" th:src="@{../libs/jparticle.min.js}"></script>
+<!-- ZylVerificationCode Js-->
+<script type="text/javascript" src="../libs/zylVerificationCode.js" th:src="@{../libs/zylVerificationCode.js}"></script>
+<script>
+  let use = layui.use(['carousel', 'form'], function () {
+    var carousel = layui.carousel
+        , form = layui.form;
+
+    //自定义验证规则
+    form.verify({
+      userName: function (value) {
+        if (value.length < 2) {
+          return '账号至少得3个字符';
+        }
+      }
+      , pass: [/^[\S]{4,12}$/, '密码必须4到12位，且不能出现空格']
+      , content: function (value) {
+        layedit.sync(editIndex);
+      }
+    });
+
+    //监听提交
+    form.on('submit(login)', function (data) {
+      // layer.alert(JSON.stringify(data.field),{
+      //   title: '最终的提交信息'
+      // })
+      console.log(("in login submit"))
+      $.ajax({
+        type: 'post'
+        , url: '/home/login'
+        , dataType: 'JSON'
+        , data: data.field
+        , success: function (res) {
+          debugger
+          // layer.alert(res)
+          console.log(res)
+          // layer.close(wait);
+          if (res.code == 0) {
+            // window.alert("error!")
+            // showMsg(res.msg, 2);
+            // window.open("/templates/catt.html");
+            localStorage.setItem("UN", res.data.uname);
+            localStorage.setItem("SCID", res.data.scid);
+            window.location.href="/templates/catt.html"
+          } else {
+            window.alert("failed")
+
+          }
+
+          // window.open("/templates/catt.html")
+          // Console.log(res);
+          // layer.alert(res), {
+          //   title: '返回的数据'
+          // }
+          // if ()
+          // }, error: function () {
+          //   layer.alert("error")
+          // }
+          // }
+          // return false;
+        }
+        , error: function () {
+          debugger
+          console.log("failed")
+        }
+      });
+
+      $("#stfLog").click(function () {
+        // window.location.href="http://localhost:8080/templates/stfLog.html"
+        window.open("/templates/stfLog.html")
+      })
+
+      $("#guestLog").click(function () {
+        // window.location.href="http://localhost:8080/templates/catt.html"
+        window.open("/templates/catt.html")
+      })
+
+      //设置轮播主体高度
+      var zyl_login_height = $(window).height() / 1.3;
+      var zyl_car_height = $(".zyl_login_height").css("cssText", "height:" + zyl_login_height + "px!important");
+    });
+  })
+
+</script>
+</body>
+</html>

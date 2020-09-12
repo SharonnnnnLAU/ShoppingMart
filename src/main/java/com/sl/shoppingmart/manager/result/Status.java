@@ -17,7 +17,7 @@ public enum Status {
   USER_EMAIL_NOT_EXIST(993, "用户邮箱不存在，请绑定后再操作"),    // 用户未绑定邮箱
   VAILDCODE_IS_OUTTIME(992, "验证码已过期，请重试"),    // 验证码过期
   VAILDCODE_NOT_MATCH(991, "验证码错误"),    // 验证码错误
-  CARD_NOT_EXIST_OR_ID_PASS_ERROR(990, "账号密码错误或该会员卡不存在，请确认后再操作"),    // 会员卡账号密码错误或该会员卡不存在
+  USER_NOT_EXIST_OR_ID_PASS_ERROR(990, "账号密码错误或该会员不存在，请确认后再操作"),    // 登陆账号密码错误或该会员不存在
   ERROR(999, "未知错误"),                               // 抛出的异常
   PERMISSION_DENIED(1000, "权限不足"),    // 权限不足
   NOT_LOGIN(1001, "没有登陆"),

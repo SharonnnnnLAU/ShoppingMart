@@ -13,7 +13,7 @@
     u_id, u_name, u_pwd, sc_id, u_type, u_address
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from user
     where u_id = #{uId,jdbcType=INTEGER}
@@ -23,9 +23,9 @@
     where u_id = #{uId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" keyColumn="u_id" keyProperty="uId" parameterType="com.sl.shoppingmart.pojo.User" useGeneratedKeys="true">
-    insert into user (u_name, u_pwd, sc_id, 
+    insert into user (u_name, u_pwd, sc_id,
       u_type, u_address)
-    values (#{uName,jdbcType=VARCHAR}, #{uPwd,jdbcType=VARCHAR}, #{scId,jdbcType=INTEGER}, 
+    values (#{uName,jdbcType=VARCHAR}, #{uPwd,jdbcType=VARCHAR}, #{scId,jdbcType=INTEGER},
       #{uType,jdbcType=BOOLEAN}, #{uAddress,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="u_id" keyProperty="uId" parameterType="com.sl.shoppingmart.pojo.User" useGeneratedKeys="true">
@@ -95,4 +95,19 @@
       u_address = #{uAddress,jdbcType=VARCHAR}
     where u_id = #{uId,jdbcType=INTEGER}
   </update>
+
+
+  <select id="selectByUserName" resultType="com.sl.shoppingmart.model.vo.UserLoginVo">
+    SELECT
+      u_id AS uId,
+      u_name AS uName,
+      u_pwd AS uPwd,
+      u_address AS uAddress,
+      u_type AS uType,
+      sc_id AS scId
+    FROM
+      user
+    WHERE
+      u_name = #{username}
+  </select>
 </mapper>

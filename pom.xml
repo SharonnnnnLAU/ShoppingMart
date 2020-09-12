@@ -265,14 +265,19 @@
             <version>3.0.9.RELEASE</version>
         </dependency>
 
+
     </dependencies>
 
     <build>
-        <finalName>gym</finalName>
-        <pluginManagement>
-            <plugins>
-
-            </plugins>
-        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>

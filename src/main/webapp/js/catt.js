@@ -79,11 +79,11 @@ layui.use(["table", "util", "form", "layedit", "laytpl"], function () {
   table.on('tool(good_list_event)', function (obj) {
     var data = obj.data,
         layEvent = obj.event;
-    console.log("in good_list_event")
+    // console.log("in good_list_event")
     switch (layEvent) {
       case 'detail':
         debugger
-        console.log("detail")
+        // console.log(data)
         showgoodsDetail($, laytpl, data)
         break;
     }
@@ -91,12 +91,14 @@ layui.use(["table", "util", "form", "layedit", "laytpl"], function () {
 
   // 弹出并渲染课程详情页
   function showgoodsDetail($, laytpl, data) {
-    var id = data.gId;
-    console.log(data)
-    console.log(id)
+    // console.log(data)
+    // console.log(data.gid)
+    // console.log(data.gimg)
+    let id = data.gid;
+    // console.log(id)
     $.ajax({
       type: "get",
-      url: "http://localhost:8080/goods/goodsDetail?gId=" + id,
+      url: "http://localhost:8080/Good/goodsDetail?gId=" + id,
       dataType: "json",
       xhrFields: {
         withCredentials: true
