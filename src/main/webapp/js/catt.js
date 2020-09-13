@@ -161,10 +161,14 @@ layui.use(["table", "util", "form", "layedit", "laytpl"], function () {
       , success: function (res) {
         localStorage.removeItem("GID");
         layer.open({
-          type: 0
-          , title: []
+          type: 1
+          , title: ["加购成功", 'font-size:18px;']
           , content: "加入购物车成功"
           , area: ["40%", "20%"]
+          , btn: ['确认']
+          , yes: function () {
+            layer.closeAll()
+          }
         })
       }
     })
