@@ -110,4 +110,14 @@
     WHERE
       u_name = #{username}
   </select>
+
+
+  <select id="getUidByUname" resultType="integer" parameterType="string">
+    SELECT
+      u_id AS uId
+    FROM
+      user
+    WHERE
+      u_name = #{username}
+  </select>
 </mapper>

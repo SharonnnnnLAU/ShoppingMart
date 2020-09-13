@@ -3,8 +3,9 @@ package com.sl.shoppingmart.dao;
 import com.sl.shoppingmart.model.vo.GoodsDetailVo;
 import com.sl.shoppingmart.model.vo.GoodsListVo;
 import com.sl.shoppingmart.pojo.Goods;
-import com.sl.shoppingmart.pojo.ShoppingCart;
+import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 public interface GoodsDao {
@@ -25,4 +26,33 @@ public interface GoodsDao {
   List<GoodsListVo> typeGood(Integer type);
 
   GoodsDetailVo goodsDetail(Integer gId);
+
+  /**
+   * order_good
+   * @author
+   */
+  @Data
+  class OrderGood implements Serializable {
+      /**
+       * 主键
+       */
+      private Integer odId;
+
+      /**
+       * 订单id
+       */
+      private Integer oId;
+
+      /**
+       * 订单的商品id
+       */
+      private Integer gId;
+
+      /**
+       * 订单中商品的数量
+       */
+      private Integer ogNum;
+
+      private static final long serialVersionUID = 1L;
+  }
 }

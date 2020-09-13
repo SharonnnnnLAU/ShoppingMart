@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible">
+  <title>CATALOG</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!--Bootstrap CSS-->
+  <link rel="stylesheet" href="../static/libs/bootstrap/css/bootstrap.min.css"
+        th:href="@{../static/libs/bootstrap/css/bootstrap.min.css}">
+  <!--FontAwesome CSS-->
+  <link rel="stylesheet" href="../static/libs/fontawesome/css/all.min.css">
+  <link>
+  <!-- Flaticon CSS -->
+  <link rel="stylesheet" href="../static/libs/flaticon/flaticon.css">
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="../static/libs/owl.carousel/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../static/libs/owl.carousel/css/owl.theme.default.min.css">
+  <!-- Animated Headlines CSS -->
+  <link rel="stylesheet" href="../static/libs/jquery-animated-headlines/css/jquery.animatedheadline.css">
+  <!-- Magnific Popup CSS -->
+  <link rel="stylesheet" href="../static/libs/magnific-popup/css/magnific-popup.css">
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="../static/libs/animate.css/css/animate.min.css">
+  <!-- Meanmenu CSS -->
+  <link rel="stylesheet" href="../static/libs/meanmenu/css/meanmenu.min.css">
+  <!--LayUI css-->
+  <link rel="stylesheet" href="../static/libs/layui/css/layui.css">
+  <!-- Site Stylesheet -->
+  <link rel="stylesheet" href="../static/css/app.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/catt.css">
+
+
+  <!-- Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap"
+        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+<a href="#wrapper" data-type="section-switch" class="scrollup">
+  <i class="fas fa-angle-double-up"></i>
+</a>
+
+<!-- ScrollUp End Here -->
+<!-- Preloader Start Here -->
+<div id="preloader"></div>
+<!-- Preloader End Here -->
+<div id="wrapper" class="wrapper">
+
+  <!--=====================================-->
+  <!--=            Header Start           =-->
+  <!--=====================================-->
+  <header class="header">
+    <div id="rt-sticky-placeholder"></div>
+    <div id="header-menu" class="header-menu menu-layout1 pd-x-20">
+      <div class="container-fluid">
+        <div class="row d-flex align-items-center">
+          <div class="col-lg-2">
+            <div class="logo-area">
+              <a href="catt.html" class="temp-logo">
+                <img src="../static/img/sharon.png" alt="logo" class="img-fluid"
+                     style="max-width: 89%">
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-7 d-flex justify-content-end">
+            <nav id="dropdown" class="template-main-menu">
+              <ul>
+                <li>
+                  <a href="coat_type.html">COAT</a>
+                </li>
+                <li>
+                  <a href="shirt_type.html">SHIRT</a>
+                </li>
+                <li>
+                  <a href="skirt_type.html">SKIRT</a>
+                </li>
+                <li>
+                  <a href="plants_type.html">PLANTS</a>
+                </li>
+                <li>
+                  <a href="shoes_type.html">SHOES</a>
+                </li>
+                <li>
+                  <a href="user_info.html">ME</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-lg-3 d-flex justify-content-end">
+            <div class="header-action-layout1">
+              <ul>
+                <li class="header-login-icon">
+                  <a href="login.html" class="color-light" data-toggle="tooltip" data-placement="top"
+                     title="Login/Register">
+                    <i class="far fa-user"></i>
+                  </a>
+                  <a href="login.html" class="color-light" data-toggle="tooltip" data-placement="top"
+                     title="Staff Login">
+                    <i><img src="../static/img/icon/staff.png" class="icon-staff" alt="icon-staff"></i>
+                  </a>
+                </li>
+                <li class="header-btn">
+                  <a href="car.html" class="item-btn">My ShoppingBAG</a>
+                </li>
+                <li class="header-btn">
+                  <a href="order.html" class="item-btn">My Order</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<!--=====================================-->
+<!--=            Banner Start           =-->
+<!--=====================================-->
+<section class="main-banner-wrap-layout1 bg-dark-overlay bg-common minus-mgt-90"
+         data-bg-image="../img/banner/banner1.jpg">
+  <div class="container">
+    <div class="main-banner-box-layout1 animated-headline">
+      <h1 class="ah-headline item-title">
+                        <span class="ah-words-wrapper">
+                            <b class="is-visible">EAT &amp; SLEEP &amp; KSWL</b>
+                            <b>EAT &amp; SLEEP &amp; KSWL</b>
+                        </span>
+      </h1>
+      <div class="item-subtitle">Keep Shining With Love</div>
+      <div class="search-box-layout1">
+        <form action="#">
+          <div class="row no-gutters">
+            <div class="col-lg-12 form-group">
+              <div class="input-search-btn search-type" data-toggle="modal" data-target="#modal-type">
+                <img class="icon" src="../static/img/icon/typelis.png" alt="typelis-icon">
+                <label>Select Type</label>
+              </div>
+            </div>
+            <!--<div class="col-lg-6 form-group">-->
+            <!--<div class="input-search-btn search-range" data-toggle="modal" data-target="#modal-range">-->
+            <!--<img class="icon" src="../img/icon/money.png">-->
+            <!--<label>Select Range</label>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-lg-4 form-group">-->
+            <!--<div class="input-search-btn search-keyword">-->
+            <!--<i class="fas fa-text-width"></i>-->
+            <!--<input type="text" class="form-control" placeholder="Enter Keyword here ..." name="keyword" id="keyword">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-lg-2 form-group">-->
+            <!--<button class="submit-btn" id="search"><i class="fas fa-search"></i>Search</button>-->
+            <!--</div>-->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--=====================================-->
+<!--=            Category Start           =-->
+<!--=====================================-->
+<section class="section-padding-top-heading">
+  <div class="container">
+    <div class="heading-layout1">
+      <h2 class="heading-title">Popular Categories</h2>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-4 col-sm-6">
+        <div class="category-box-layout1">
+          <a href="coat_type.html">
+            <div class="item-icon">
+              <img src="../static/img/icon/coat.png" class="icon-row" alt="coat-icon">
+            </div>
+            <div class="item-content">
+              <h3 class="item-title">COAT</h3>
+              <div class="item-count">99 +</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-4 col-sm-6">
+        <div class="category-box-layout1">
+          <a href="shirt_type.html">
+            <div class="item-icon">
+              <img src="../static/img/icon/shirt.png" class="icon-row" alt="shirt-icon">
+            </div>
+            <div class="item-content">
+              <h3 class="item-title">SHIRT</h3>
+              <div class="item-count">99 +</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-4 col-sm-6">
+        <div class="category-box-layout1">
+          <a href="skirt_type.html">
+            <div class="item-icon">
+              <img src="../static/img/icon/skirt.png" class="icon-row" alt="skirt-icon">
+            </div>
+            <div class="item-content">
+              <h3 class="item-title">SKIRT</h3>
+              <div class="item-count">99 +</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-4 col-sm-6">
+        <div class="category-box-layout1">
+          <a href="plants_type.html">
+            <div class="item-icon">
+              <img src="../static/img/icon/plants.png" class="icon-row" alt="plants-icon">
+            </div>
+            <div class="item-content">
+              <h3 class="item-title">PLANTS</h3>
+              <div class="item-count">99 +</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-4 col-sm-6">
+        <div class="category-box-layout1">
+          <a href="shoes_type.html">
+            <div class="item-icon">
+              <img src="../static/img/icon/shoes.png" class="icon-row" alt="shoes-icon">
+            </div>
+            <div class="item-content">
+              <h3 class="item-title">SHOES</h3>
+              <div class="item-count">99 +</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--=====================================-->
+<!--=       Product Box Start           =-->
+<!--=====================================-->
+<section class="section-padding-top-heading bg-accent">
+  <div class="container">
+    <div class="heading-layout1">
+      <h2 class="heading-title">Hot Goods</h2>
+    </div>
+    <div class="row">
+      <!--<div class="col-lg-3 col-md-4 col-sm-6">-->
+      <!--<div class="product-box-layout1">-->
+      <!--<div class="item-img">-->
+      <!--<a href=""><img src="../img/product/product1.jpg" alt="Product"></a>-->
+      <!--</div>-->
+      <!--<div class="item-content">-->
+      <!--<h3 class="item-title"><a href="">HD 27 inch Mac 1 year used only</a></h3>-->
+      <!--<ul class="entry-meta">-->
+      <!--<li><i class="far fa-clock"></i>3 months ago</li>-->
+      <!--<li><i class="fas fa-map-marker-alt"></i>Port Chester, New York</li>-->
+      <!--</ul>-->
+      <!--<div class="item-price">-->
+      <!--<span class="currency-symbol">$</span>-->
+      <!--2,500-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+    </div>
+    <div class="ly-margin-lr-min">
+      <!--table 本人-->
+      <table class="layui-hide" id="goods_list" lay-filter="good_list_event"></table>
+    </div>
+  </div>
+</section>
+
+<!--=====================================-->
+<!--=       Footer Start           	=-->
+<!--=====================================-->
+<footer>
+  <div class="footer-top-wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-sm-6">
+          <div class="footer-box-layout1">
+            <div class="footer-logo">
+              <img src="../static/img/sharon.png" alt="logo">
+            </div>
+            <div class="footer-menu-box">
+              <ul>
+                <li><a>Store Locator</a></li>
+                <li><a>Find a Boutique</a></li>
+                <li><a>Sharon Watches Stores</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="footer-box-layout1">
+            <div class="footer-title">
+              <h3>CUSTOMER CARE</h3>
+            </div>
+            <div class="footer-menu-box">
+              <ul>
+                <li><a href="#">Exclusive Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Help/FAQs</a></li>
+                <li><a href="#">Orders &amp; Shipping</a></li>
+                <li><a href="#">Return &amp; Refunds</a></li>
+                <li><a href="#">Authenticity</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="footer-box-layout1">
+            <div class="footer-title">
+              <h3>ABOUT US</h3>
+            </div>
+            <div class="footer-menu-box">
+              <ul>
+                <li><a href="#">Company Profile</a></li>
+                <li><a href="#">Corporate Data</a></li>
+                <li><a href="#">Inverstor Relations</a></li>
+                <li><a href="#">Careers</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="footer-box-layout1">
+            <div class="footer-title">
+              <h3>LEGAL</h3>
+            </div>
+            <div class="footer-menu-box">
+              <ul>
+                <li><a href="#">Legal Notes</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">General Conditions of Purchase</a></li>
+                <li><a href="#">Ethical Code</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom-wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="copyright-text">
+            &copy; SHARONLAU
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!--=====================================-->
+<!--=       Modal Start           	 	=-->
+<!--=====================================-->
+<div class="modal fade modal-type" id="modal-type" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <button type="button" class="close modal-close" data-dismiss="modal" aria-label="Close">
+        <span class="fas fa-times" aria-hidden="true"></span>
+      </button>
+      <div class="type-list">
+        <h4 class="item-title">Type</h4>
+        <ul>
+          <li><a href="coat_type.html">COAT</a></li>
+          <li><a href="shirt_type.html">SHIRT</a></li>
+          <li><a href="skirt_type.html">SKIRT</a></li>
+          <li><a href="plants_type.html">PLANTS</a></li>
+          <li><a href="shoes_type.html">SHOES</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--=====================================-->
+<!--=       Product Box SET         	 	=-->
+<!--=====================================-->
+<!-- 行工具栏 -->
+<script type="text/html" id="good_list_option">
+  <a class="layui-btn layui-btn-radius layui-btn-primary layui-btn-sm" lay-event="detail">详情</a>
+  <a class="layui-btn layui-btn-radius layui-btn-add layui-btn-sm" lay-event="addCar">加入购物车</a>
+  <a class="layui-btn layui-btn-radius layui-btn-pur layui-btn-sm" lay-event="purchase">直接购买</a>
+</script>
+
+<!-- 商品详情弹窗 -->
+<script type="text/html" id="goods_detail">
+  <div class="layui-layout-body">
+    <div class="layui-row layui-col-space10">
+      <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+        商品名称： {{d.gname}}
+      </div>
+      <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+        商品价格： {{d.gprice}}
+      </div>
+    </div>
+  </div>
+  <div class="layui-row layui-col-space10">
+    <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+      商品介绍： {{d.gdesc}}
+    </div>
+  </div>
+  <div class="layui-row layui-col-space10">
+    <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+    图片详情： <img src="../{{d.gimg}}">
+  </div>
+  </div>
+</script>
+
+<!-- 商品加购物车弹窗 -->
+<script type="text/html" id="goods_add">
+  <form onsubmit="return false">
+    <div class="layui-layout-body">
+      <div class="layui-row layui-col-space10">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+          商品名称： {{d.gname}}
+        </div>
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+          商品价格： {{d.gprice}}
+        </div>
+      </div>
+    </div>
+    <div class="layui-row layui-col-space10">
+      <div class="layui-col-xs12 layui-col-sm12 layui-col-md12" style="display: inline;">
+        请选择数量：
+        <input type="number" id="gnum" autocomplete="off" class="pur-input" value="1">
+        <input type="submit" class="layui-btn" lay-submit lay-filter="addToCart">
+      </div>
+    </div>
+    <div class="layui-row layui-col-space10">
+      <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+        图片详情： <img src="../{{d.gimg}}">
+      </div>
+    </div>
+  </form>
+</script>
+
+<!-- 商品直接购买弹窗 -->
+<script type="text/html" id="goods_pur">
+  <form onsubmit="return false">
+    <div class="layui-layout-body">
+      <div class="layui-row layui-col-space10">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+          商品名称： {{d.gname}}
+        </div>
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+          商品价格： {{d.gprice}}
+        </div>
+      </div>
+    </div>
+    <div class="layui-row layui-col-space10">
+      <div class="layui-col-xs12 layui-col-sm12 layui-col-md12" style="display: inline;">
+        请选择数量：
+        <input type="number" id="gpurnum" autocomplete="off" class="pur-input" value="1">
+        <input type="submit" class="layui-btn" lay-submit lay-filter="addToOrder">
+      </div>
+    </div>
+    <div class="layui-row layui-col-space10">
+      <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+        图片详情： <img src="../{{d.gimg}}">
+      </div>
+    </div>
+  </form>
+</script>
+
+</body>
+
+<!--Lay UI JS-->
+<!--<script src="../libs/layui/layui.js"></script>-->
+<script src="../static/libs/layui/layui.all.js"></script>
+<!-- Jquery Js -->
+<script src="../static/libs/jquery/js/jquery.min.js"></script>
+<!-- Popper Js -->
+<script src="../static/libs/popper.js/js/popper.min.js"></script>
+<!-- Bootstrap Js -->
+<script src="../static/libs/bootstrap/js/bootstrap.min.js"></script>
+<!-- Waypoints Js -->
+<script src="../static/libs/waypoints/js/jquery.waypoints.min.js"></script>
+<!-- Counterup Js -->
+<script src="../static/libs/jquery.counterup/js/jquery.counterup.min.js"></script>
+<!-- Owl Carousel Js -->
+<script src="../static/libs/owl.carousel/js/owl.carousel.min.js"></script>
+<!-- ImagesLoaded Js -->
+<script src="../static/libs/imagesloaded/js/imagesloaded.pkgd.min.js"></script>
+<!-- Isotope Js -->
+<script src="../static/libs/isotope-layout/js/isotope.pkgd.min.js"></script>
+<!-- Animated Headline Js -->
+<script src="../static/libs/jquery-animated-headlines/js/jquery.animatedheadline.min.js"></script>
+<!-- Magnific Popup Js -->
+<script src="../static/libs/magnific-popup/js/jquery.magnific-popup.min.js"></script>
+<!-- ElevateZoom Js -->
+<script src="../static/libs/elevatezoom/js/jquery.elevateZoom-2.2.3.min.js"></script>
+<!-- Bootstrap Validate Js -->
+<script src="../static/libs/bootstrap-validator/js/validator.min.js"></script>
+<!-- Meanmenu Js -->
+<script src="../static/libs/meanmenu/js/jquery.meanmenu.min.js"></script>
+<!-- Google Map js -->
+<script src="https://ditu.google.cn/maps/api/js?key=AIzaSyBtmXSwv4YmAKtcZyyad9W7D4AC08z0Rb4"></script>
+
+<!-- Site Scripts -->
+<script src="../static/js/app.js"></script>
+
+<script src="../static/js/main.js"></script>
+<script src="../static/js/catt.js"></script>
+
+</html>

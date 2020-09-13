@@ -27,11 +27,13 @@ public class HomeController {
   public R login(String userName, String userPwd, HttpServletRequest request) {
     return userService.login(userName, userPwd, request);
   }
+//
+  @RequestMapping("/index")
+  public String index() {
+    System.out.println("--> /home/index");
+    return "login";
+  }
 
-//  @RequestMapping("/test")
-//  public String index() {
-//    return "login";
-//  }
 //  @RequestMapping("/login")
 //  public Integer login(String username, String password, String code, HttpServletRequest request) {
 //    return userService.login(username, password, code, request);

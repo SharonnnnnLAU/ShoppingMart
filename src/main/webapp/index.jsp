@@ -13,8 +13,7 @@
 </head>
 
 <body>
-  <%--<jsp:forward page="/home/login" />--%>
-  <jsp:forward page="/templates/login.html" />
+  <jsp:forward page="/home/index" />
 </body>
 
 </html>
