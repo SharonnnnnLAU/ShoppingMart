@@ -5,11 +5,12 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
-/**
- * 展示商品信息页
- */
 @Data
-public class GoodsListVo {
+public class SCGoodVo {
+  /**
+   * 购物车id
+   */
+  private Integer scId;
 
   /**
    * 商品id
@@ -17,9 +18,9 @@ public class GoodsListVo {
   private Integer gId;
 
   /**
-   * 商品图片
+   * 商品数量
    */
-  private String gImg;
+  private Integer gNum;
 
   /**
    * 商品价格
@@ -31,11 +32,17 @@ public class GoodsListVo {
    */
   private String gName;
 
+
   /**
    * 商品类型 0:coat 1:plants 2:shirt 3:shoes 4:skirt
    */
   private Integer gType;
 
+  /**
+   * 封面图片
+   */
+  private String gImg;
 
   private static final long serialVersionUID = 1L;
+
 }

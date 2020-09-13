@@ -1,76 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sl.shoppingmart.dao.ShoppingCartDao">
-  <resultMap id="BaseResultMap" type="com.sl.shoppingmart.pojo.ShoppingCart">
-    <id column="sc_id" jdbcType="INTEGER" property="scId" />
-    <result column="g_id" jdbcType="INTEGER" property="gId" />
-    <result column="sc_isdel" jdbcType="BOOLEAN" property="scIsdel" />
-    <result column="g_num" jdbcType="INTEGER" property="gNum" />
-  </resultMap>
-  <sql id="Base_Column_List">
+    <resultMap id="BaseResultMap" type="com.sl.shoppingmart.pojo.ShoppingCart">
+        <id column="sc_id" jdbcType="INTEGER" property="scId"/>
+        <result column="g_id" jdbcType="INTEGER" property="gId"/>
+        <result column="sc_isdel" jdbcType="BOOLEAN" property="scIsdel"/>
+        <result column="g_num" jdbcType="INTEGER" property="gNum"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     sc_id, g_id, sc_isdel, g_num
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from shopping_cart
-    where sc_id = #{scId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from shopping_cart
+        where sc_id = #{scId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from shopping_cart
     where sc_id = #{scId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="sc_id" keyProperty="scId" parameterType="com.sl.shoppingmart.pojo.ShoppingCart" useGeneratedKeys="true">
+    <insert id="insert" keyColumn="sc_id" keyProperty="scId" parameterType="com.sl.shoppingmart.pojo.ShoppingCart"
+            useGeneratedKeys="true">
     insert into shopping_cart (g_id, sc_isdel, g_num
       )
     values (#{gId,jdbcType=INTEGER}, #{scIsdel,jdbcType=BOOLEAN}, #{gNum,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="sc_id" keyProperty="scId" parameterType="com.sl.shoppingmart.pojo.ShoppingCart" useGeneratedKeys="true">
-    insert into shopping_cart
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="gId != null">
-        g_id,
-      </if>
-      <if test="scIsdel != null">
-        sc_isdel,
-      </if>
-      <if test="gNum != null">
-        g_num,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="gId != null">
-        #{gId,jdbcType=INTEGER},
-      </if>
-      <if test="scIsdel != null">
-        #{scIsdel,jdbcType=BOOLEAN},
-      </if>
-      <if test="gNum != null">
-        #{gNum,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sl.shoppingmart.pojo.ShoppingCart">
-    update shopping_cart
-    <set>
-      <if test="gId != null">
-        g_id = #{gId,jdbcType=INTEGER},
-      </if>
-      <if test="scIsdel != null">
-        sc_isdel = #{scIsdel,jdbcType=BOOLEAN},
-      </if>
-      <if test="gNum != null">
-        g_num = #{gNum,jdbcType=INTEGER},
-      </if>
-    </set>
-    where sc_id = #{scId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.sl.shoppingmart.pojo.ShoppingCart">
+    <insert id="insertSelective" keyColumn="sc_id" keyProperty="scId"
+            parameterType="com.sl.shoppingmart.pojo.ShoppingCart" useGeneratedKeys="true">
+        insert into shopping_cart
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="gId != null">
+                g_id,
+            </if>
+            <if test="scIsdel != null">
+                sc_isdel,
+            </if>
+            <if test="gNum != null">
+                g_num,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="gId != null">
+                #{gId,jdbcType=INTEGER},
+            </if>
+            <if test="scIsdel != null">
+                #{scIsdel,jdbcType=BOOLEAN},
+            </if>
+            <if test="gNum != null">
+                #{gNum,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.sl.shoppingmart.pojo.ShoppingCart">
+        update shopping_cart
+        <set>
+            <if test="gId != null">
+                g_id = #{gId,jdbcType=INTEGER},
+            </if>
+            <if test="scIsdel != null">
+                sc_isdel = #{scIsdel,jdbcType=BOOLEAN},
+            </if>
+            <if test="gNum != null">
+                g_num = #{gNum,jdbcType=INTEGER},
+            </if>
+        </set>
+        where sc_id = #{scId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.sl.shoppingmart.pojo.ShoppingCart">
     update shopping_cart
     set g_id = #{gId,jdbcType=INTEGER},
       sc_isdel = #{scIsdel,jdbcType=BOOLEAN},
       g_num = #{gNum,jdbcType=INTEGER}
     where sc_id = #{scId,jdbcType=INTEGER}
   </update>
+
+    <!--购物车物品展示-->
+    <select id="listSC" resultType="com.sl.shoppingmart.model.vo.SCGoodVo" parameterType="integer">
+    SELECT
+      cart.g_id AS gId,
+      cart.g_num AS gNum,
+      g.g_price AS gPrice,
+      g.g_name AS gName,
+      g.g_img AS gImg
+    FROM
+      shopping_cart cart
+    LEFT JOIN goods g ON cart.g_id = g.g_id
+    WHERE
+      cart.sc_id = #{scid}
+  </select>
+
+
+    <!--查看是否已在购物车-->
+    <select id="isExistGood" resultType="com.sl.shoppingmart.pojo.ShoppingCart">
+    SELECT
+      g_id AS gId,
+      sc_id AS scId
+    FROM
+      shopping_cart
+    WHERE
+      g_id = #{gid} AND sc_id = #{scid}
+  </select>
+
+    <!--已在购物车，更新数量-->
+    <update id="updateScNum" parameterType="integer">
+      UPDATE
+        shopping_cart
+      SET
+        g_num = g_num + #{gnum}
+      WHERE
+        sc_id = #{scid} AND g_id = #{gid}
+    </update>
+
+    <!--不在购物车，新增物品-->
+    <insert id="insertScGood" parameterType="integer">
+      INSERT INTO
+        shopping_cart(g_id, g_num, sc_id)
+      VALUES
+        (#{gid}, #{gnum}, #{scid})
+    </insert>
 </mapper>

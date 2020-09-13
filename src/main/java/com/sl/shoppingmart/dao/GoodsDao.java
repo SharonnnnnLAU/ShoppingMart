@@ -3,6 +3,7 @@ package com.sl.shoppingmart.dao;
 import com.sl.shoppingmart.model.vo.GoodsDetailVo;
 import com.sl.shoppingmart.model.vo.GoodsListVo;
 import com.sl.shoppingmart.pojo.Goods;
+import com.sl.shoppingmart.pojo.ShoppingCart;
 
 import java.util.List;
 

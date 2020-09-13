@@ -6331,3 +6331,24 @@ a.item-trending:after {
     /* padding-right: 5px; */
     margin-top: 3px
 }
+
+
+.layui-table-cell{
+    height:412px;
+    line-height: 412px;
+}
+
+.layui-table thead {
+    height: 20px;
+    line-height: 20px;
+}
+
+.layui-table thead th{
+    height: 20px;
+    line-height: 20px;
+}
+
+.layui-table thead th div{
+    height: 20px;
+    line-height: 20px;
+}

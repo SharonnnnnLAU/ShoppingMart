@@ -394,7 +394,9 @@
 <!--=====================================-->
 <!-- 行工具栏 -->
 <script type="text/html" id="good_list_option">
-  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">详情</a>
+  <a class="layui-btn layui-btn-radius layui-btn-primary layui-btn-sm" lay-event="detail">详情</a>
+  <a class="layui-btn layui-btn-radius layui-btn-add layui-btn-sm" lay-event="addCar">加入购物车</a>
+  <a class="layui-btn layui-btn-radius layui-btn-pur layui-btn-sm" lay-event="purchase">直接购买</a>
 </script>
 
 <!-- 商品详情 -->
@@ -416,9 +418,40 @@
   </div>
   <div class="layui-row layui-col-space10">
     <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
-      图片详情： <img src="../{{d.gimg}}">
-    </div>
+    图片详情： <img src="../{{d.gimg}}">
   </div>
+  </div>
+</script>
+
+<!-- 商品加购物车 -->
+<script type="text/html" id="add_car">
+  <form onsubmit="return false">
+    <div class="layui-layout-body">
+      <div class="layui-row layui-col-space10">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+          商品名称： {{d.gname}}
+        </div>
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+          商品价格： {{d.gprice}}
+        </div>
+      </div>
+    </div>
+    <div class="layui-row layui-col-space10">
+      <div class="layui-col-xs12 layui-col-sm12 layui-col-md12" style="display: inline;">
+        请选择数量：
+        <input type="number" id="gnum" autocomplete="off" class="pur-input" value="1">
+        <input type="submit" class="layui-btn" lay-submit lay-filter="addToCart">
+      </div>
+    </div>
+    <div class="layui-row layui-col-space10">
+      <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
+        图片详情： <img src="../{{d.gimg}}">
+      </div>
+    </div>
+    <!--<div>-->
+      <!--<input value="{{d.gid}}" style="display: none;" name="gid">-->
+    <!--</div>-->
+  </form>
 </script>
 
 </body>

@@ -20,12 +20,12 @@ layui.use(["table", "util", "form", "layedit", "laytpl"], function () {
     url: 'http://localhost:8080/Good/listGood',
     totalRow: false,
     skin: "line",
-    limits: [15, 20, 25, 30, 10],
+    limits: [45, 10, 10, 5, 35],
     cols: [
       [
         {
           field: 'gimg',
-          minWidth: 100,
+          minWidth: 300,
           align: 'center',
           templet: function (d) {
             var path = d.gimg;
@@ -36,16 +36,16 @@ layui.use(["table", "util", "form", "layedit", "laytpl"], function () {
         {
           field: 'gname',
           align: 'center',
-          minWidth: 150,
+          minWidth: 50,
         },
         {
           field: 'gprice',
           align: 'center',
-          minWidth: 150,
+          minWidth: 50,
         },
         {
           field: 'gtype',
-          minWidth: 100,
+          minWidth: 50,
           align: 'center',
           templet: function (d) {
             if (d.gtype == 0) {
@@ -65,7 +65,7 @@ layui.use(["table", "util", "form", "layedit", "laytpl"], function () {
           fixed: 'right',
           align: 'center',
           toolbar: '#good_list_option',
-          width: 55
+          width: 300
         }
       ]
     ]
@@ -82,20 +82,19 @@ layui.use(["table", "util", "form", "layedit", "laytpl"], function () {
     // console.log("in good_list_event")
     switch (layEvent) {
       case 'detail':
-        debugger
-        // console.log(data)
         showgoodsDetail($, laytpl, data)
         break;
+      case 'addCar':
+        addCart($, laytpl, data)
+        break
+      case 'purchase':
+        break
     }
   });
 
-  // 弹出并渲染课程详情页
+  // 弹出并渲染商品详情页
   function showgoodsDetail($, laytpl, data) {
-    // console.log(data)
-    // console.log(data.gid)
-    // console.log(data.gimg)
     let id = data.gid;
-    // console.log(id)
     $.ajax({
       type: "get",
       url: "http://localhost:8080/Good/goodsDetail?gId=" + id,
@@ -105,7 +104,7 @@ layui.use(["table", "util", "form", "layedit", "laytpl"], function () {
       },
       success: function (res) {
         console.log(res.data)
-        var cnt, d = res.data,
+        let cnt, d = res.data,
             goodsDetail = goods_detail.innerHTML;
         laytpl(goodsDetail).render(d, function (html) {
           cnt = html;
@@ -124,4 +123,50 @@ layui.use(["table", "util", "form", "layedit", "laytpl"], function () {
     });
   }
 
+  // 弹出加购页
+  function addCart($, laytpl, data) {
+    debugger
+    let cnt, id = data.gid,
+        d = data;
+    localStorage.setItem("GID", id);
+    goodsAdd = add_car.innerHTML;
+    laytpl(goodsAdd).render(d, function (html) {
+      cnt = html;
+    })
+    layer.open({
+      type: 1
+      , title: ["加入购物车", 'font-size:18px;']
+      , content: cnt
+      , area: ["60%", "60%"]
+    })
+  }
+
+  form.on('submit(addToCart)', function (data) {
+    console.log(data)
+    debugger
+    let id = localStorage.getItem("GID"),
+        scid = localStorage.getItem("SCID"),
+        gnum = document.getElementById("gnum").value;
+    console.log(id, scid, gnum)
+    var params = {
+      "gid": id, "gnum": gnum, "scid": scid
+    }
+    console.log(params)
+    debugger
+    $.ajax({
+      type: 'post'
+      , url: 'http://localhost:8080/SC/addCar'
+      , data: params
+      , dataType: 'JSON'
+      , success: function (res) {
+        localStorage.removeItem("GID");
+        layer.open({
+          type: 0
+          , title: []
+          , content: "加入购物车成功"
+          , area: ["40%", "20%"]
+        })
+      }
+    })
+  })
 });

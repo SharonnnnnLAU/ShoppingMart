@@ -34,21 +34,34 @@ public class GoodsController {
    */
 
   @RequestMapping("/coatType")
-  public R coatType() { return goodsService.typeGood(0);}
+  public R coatType() {
+    return goodsService.typeGood(0);
+  }
 
   @RequestMapping("/plantsType")
-  public R plantsType() { return goodsService.typeGood(1);}
+  public R plantsType() {
+    return goodsService.typeGood(1);
+  }
 
   @RequestMapping("/shirtType")
-  public R shirtType() { return goodsService.typeGood(2);}
+  public R shirtType() {
+    return goodsService.typeGood(2);
+  }
 
   @RequestMapping("/shoesType")
-  public R shoesType() { return goodsService.typeGood(3);}
+  public R shoesType() {
+    return goodsService.typeGood(3);
+  }
 
   @RequestMapping("/skirtType")
-  public R skirtType() { return goodsService.typeGood(4);}
+  public R skirtType() {
+    return goodsService.typeGood(4);
+  }
 
   @RequestMapping("/goodsDetail")
   public R goodsDetail(Integer gId) {
-    return goodsService.goodsDetail(gId);}
+    return goodsService.goodsDetail(gId);
+  }
+
+
 }
