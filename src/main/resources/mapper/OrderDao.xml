@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sl.shoppingmart.dao.OrderDao">
+  <resultMap id="BaseResultMap" type="com.sl.shoppingmart.pojo.Order">
+    <id column="o_id" jdbcType="INTEGER" property="oId" />
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="o_createtime" jdbcType="TIMESTAMP" property="oCreatetime" />
+    <result column="o_status" jdbcType="INTEGER" property="oStatus" />
+    <result column="o_isdel" jdbcType="BOOLEAN" property="oIsdel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    o_id, u_id, o_createtime, o_status, o_isdel
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from order
+    where o_id = #{oId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from order
+    where o_id = #{oId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="o_id" keyProperty="oId" parameterType="com.sl.shoppingmart.pojo.Order" useGeneratedKeys="true">
+    insert into order (u_id, o_createtime, o_status,
+      o_isdel)
+    values (#{uId,jdbcType=INTEGER}, #{oCreatetime,jdbcType=TIMESTAMP}, #{oStatus,jdbcType=INTEGER},
+      #{oIsdel,jdbcType=BOOLEAN})
+  </insert>
+  <insert id="insertSelective" keyColumn="o_id" keyProperty="oId" parameterType="com.sl.shoppingmart.pojo.Order" useGeneratedKeys="true">
+    insert into order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="oCreatetime != null">
+        o_createtime,
+      </if>
+      <if test="oStatus != null">
+        o_status,
+      </if>
+      <if test="oIsdel != null">
+        o_isdel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uId != null">
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="oCreatetime != null">
+        #{oCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oStatus != null">
+        #{oStatus,jdbcType=INTEGER},
+      </if>
+      <if test="oIsdel != null">
+        #{oIsdel,jdbcType=BOOLEAN},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sl.shoppingmart.pojo.Order">
+    update order
+    <set>
+      <if test="uId != null">
+        u_id = #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="oCreatetime != null">
+        o_createtime = #{oCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oStatus != null">
+        o_status = #{oStatus,jdbcType=INTEGER},
+      </if>
+      <if test="oIsdel != null">
+        o_isdel = #{oIsdel,jdbcType=BOOLEAN},
+      </if>
+    </set>
+    where o_id = #{oId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sl.shoppingmart.pojo.Order">
+    update order
+    set u_id = #{uId,jdbcType=INTEGER},
+      o_createtime = #{oCreatetime,jdbcType=TIMESTAMP},
+      o_status = #{oStatus,jdbcType=INTEGER},
+      o_isdel = #{oIsdel,jdbcType=BOOLEAN}
+    where o_id = #{oId,jdbcType=INTEGER}
+  </update>
+
+  <insert id="addOrder" parameterType="integer" useGeneratedKeys="true" keyProperty="oid" keyColumn="o_id">
+    INSERT INTO order (u_id, o_status)
+    VALUES (#{uid}, 0)
+  </insert>
+</mapper>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sl.shoppingmart.dao.OrderGoodDao">
+  <resultMap id="BaseResultMap" type="com.sl.shoppingmart.pojo.OrderGood">
+    <id column="od_id" jdbcType="INTEGER" property="odId" />
+    <result column="o_id" jdbcType="INTEGER" property="oId" />
+    <result column="g_id" jdbcType="INTEGER" property="gId" />
+    <result column="og_num" jdbcType="INTEGER" property="ogNum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    od_id, o_id, g_id, og_num
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from order_good
+    where od_id = #{odId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from order_good
+    where od_id = #{odId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="od_id" keyProperty="odId" parameterType="com.sl.shoppingmart.pojo.OrderGood" useGeneratedKeys="true">
+    insert into order_good (o_id, g_id, og_num
+      )
+    values (#{oId,jdbcType=INTEGER}, #{gId,jdbcType=INTEGER}, #{ogNum,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="od_id" keyProperty="odId" parameterType="com.sl.shoppingmart.pojo.OrderGood" useGeneratedKeys="true">
+    insert into order_good
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="oId != null">
+        o_id,
+      </if>
+      <if test="gId != null">
+        g_id,
+      </if>
+      <if test="ogNum != null">
+        og_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="oId != null">
+        #{oId,jdbcType=INTEGER},
+      </if>
+      <if test="gId != null">
+        #{gId,jdbcType=INTEGER},
+      </if>
+      <if test="ogNum != null">
+        #{ogNum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sl.shoppingmart.pojo.OrderGood">
+    update order_good
+    <set>
+      <if test="oId != null">
+        o_id = #{oId,jdbcType=INTEGER},
+      </if>
+      <if test="gId != null">
+        g_id = #{gId,jdbcType=INTEGER},
+      </if>
+      <if test="ogNum != null">
+        og_num = #{ogNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where od_id = #{odId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sl.shoppingmart.pojo.OrderGood">
+    update order_good
+    set o_id = #{oId,jdbcType=INTEGER},
+      g_id = #{gId,jdbcType=INTEGER},
+      og_num = #{ogNum,jdbcType=INTEGER}
+    where od_id = #{odId,jdbcType=INTEGER}
+  </update>
+
+  <insert id="addGood">
+    INSERT INTO order_good (g_id, og_num, o_id)
+    VALUES #{gid}, #{ognum}, #{oid}
+  </insert>
+</mapper>

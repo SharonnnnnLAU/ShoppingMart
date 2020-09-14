@@ -21,19 +21,5 @@ public interface UserDao {
 
   Integer getUidByUname(String username);
 
-  interface OrderGoodDao {
-      int deleteByPrimaryKey(Integer odId);
 
-      int insert(GoodsDao.OrderGood record);
-
-      int insertSelective(GoodsDao.OrderGood record);
-
-      GoodsDao.OrderGood selectByPrimaryKey(Integer odId);
-
-      int updateByPrimaryKeySelective(GoodsDao.OrderGood record);
-
-      int updateByPrimaryKey(GoodsDao.OrderGood record);
-
-    Integer addGood(@Param("gid") Integer gid, @Param("ognum") Integer gnum, @Param("oid") Integer oid);
-  }
 }
